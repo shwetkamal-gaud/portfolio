@@ -31,7 +31,7 @@ const ContainedTypography = ({ children, align, gutterBottom, noWrap, paragraph,
                 //  variant={variant ? variant : "h6"}
                 text={text}
                 color={color ? color : isDark ? textWhite : textDark}
-                //component={component ? component : "h1"}
+                component={component ? component : ""}
                 {...rest}
             >
                 {text}{children}
