@@ -12,26 +12,26 @@ import { useRouter } from 'next/router';
 
 
 const protfolioData = [
-    {
-        id: 2,
-        results: {
-            title: 'web 2.0 projects',
-            data: [
-                {
-                    id: 8,
-                    title: 'Portfolio',
-                    skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap"],
-                    description: `It's shows deltails of my experiences, skills, projects etc..`,
-                    cardImage: ecommarce,
-                    figma: "",
-                    isPrivate: true,
-                    liveUrl: 'https://friend-shoes-ecommerce.netlify.app/',
-                    youtubeUrl: 'https://youtu.be/h2SX4VHQHlE',
-                },
+    // {
+    //     id: 2,
+    //     results: {
+    //         title: 'web 2.0 projects',
+    //         data: [
+    //             {
+    //                 id: 8,
+    //                 title: 'Portfolio',
+    //                 skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap"],
+    //                 description: `It's shows deltails of my experiences, skills, projects etc..`,
+    //                 cardImage: ecommarce,
+    //                 figma: "",
+    //                 isPrivate: true,
+    //                 liveUrl: 'https://friend-shoes-ecommerce.netlify.app/',
+    //                 youtubeUrl: 'https://youtu.be/h2SX4VHQHlE',
+    //             },
 
-            ],
-        }
-    },
+    //         ],
+    //     }
+    // },
     {
         id: 1,
         results: {
