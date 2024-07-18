@@ -68,9 +68,6 @@ const Experience = () => {
                     <ContainedTypography
                         fontWeight={400}
                         fontSize={16}
-
-                        component={Link}
-                        to='/'
                         onClick={() => router.back()}
                         sx={{
                             borderBottom: '2px solid #C778DD',
@@ -102,19 +99,6 @@ const Experience = () => {
                 sx={{
                     border: '1px solid #ABB2BF',
                     display: 'inline-block',
-                    // minWidth: '600px',
-                    // maxWidth: '700px',
-                    // minWidth: {
-                    //     xs: '300px',
-                    //     sm: '500px',
-                    //     md: '700px',
-                    // },
-                    // maxWidth: {
-                    //     xs: '600px',
-                    //     sm: '500px',
-                    //     md: '700px',
-
-                    // },
                     flexGrow: 1,
                     flexShrink: 1,
                     flexBasis: 0,
@@ -174,7 +158,6 @@ const Experience = () => {
                     />
                 </Box>
                 <Box
-                    // component={"ul"}
                     sx={{
                         p: 1,
                         display: 'flex',

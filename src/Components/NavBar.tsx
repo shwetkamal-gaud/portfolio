@@ -84,7 +84,6 @@ function NavBar(props: any) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-    console.log(":sejfkjsf", isDark)
     const drawer = (
         <Box
             //  onClick={handleDrawerToggle}

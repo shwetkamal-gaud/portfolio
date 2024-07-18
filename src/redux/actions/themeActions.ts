@@ -10,7 +10,6 @@ export const changeTheme = (payload: any) => {
 }
 
 export const changeThemeWithColor = (payload: any) => {
-    console.log("changeThemeWithColor", payload)
     return {
         type: CHANGE_THEME_WITH_COLOR,
         payload

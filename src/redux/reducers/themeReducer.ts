@@ -111,7 +111,6 @@ const themeReducer = (state = initialState, action: any) => {
                 mode: action?.payload
             }
         case CHANGE_THEME_WITH_COLOR:
-            console.log("changeThemeWithColor", action)
             return {
                 ...state,
                 count: 1,
