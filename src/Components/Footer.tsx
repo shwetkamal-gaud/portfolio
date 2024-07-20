@@ -37,7 +37,7 @@ const footerData = {
     ],
     socialsTitle: "Social Media",
     discription: `Frontend Engineer, React Native developer & Penetration Tester `,
-    link: 'https://dev-shohan.netlify.app/',
+    link: 'https://portfolio-gaud-shwetkamal-kamlesh-kumars-projects.vercel.app/',
     copyRight: 'Shwetkamal Gaud. All rights reserved.',
     logo: logo,
     logoTitle: 'Shwetkamal Gaud',

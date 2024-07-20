@@ -97,13 +97,13 @@ successful projects on time and within budget.`
         "Miss my childhood days",
 
     ],
-    overleafResume: '/Internship Letter-Shwetkamal Gaud-Silveroak.pdf',
+    resume: '/Resume.pdf',
     image: photo,
 }
 
 
 const AbaoutMe = () => {
-    const { aboutData, mySkills, funFact, overleafResume, image } = aboutMeData;
+    const { aboutData, mySkills, funFact, resume, image } = aboutMeData;
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
@@ -371,7 +371,7 @@ const AbaoutMe = () => {
                                         btnTitle="Download CV"
                                         component={"a"}
                                         target="_blank"
-                                        href={overleafResume}
+                                        href={resume}
                                         startIcon={<PictureAsPdfIcon />}
 
                                     />

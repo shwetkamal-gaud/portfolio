@@ -21,14 +21,14 @@ const homeAboutData = {
             text: ` Mobile app development and VAPT(Vunerability Assessment & Penetration Testing) are my other passions. React and React Native is my favorite JavaScript libraries. I'm also a big fan of Python, Java, Rust. In the future, I want to be a Full Stack Developer`,
         }
     ],
-    overleafResume: 'https://mycdn.com/assets/Internship Letter-Shwetkamal Gaud-Silveroak.pdf',
+    resume: '/Resume.pdf',
     image: photo,
 }
 
 const About = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
-    const { aboutData, overleafResume, image } = homeAboutData;
+    const { aboutData, resume, image } = homeAboutData;
     const Header = () => {
         return (
             <Stack
@@ -110,7 +110,7 @@ const About = () => {
                                 btnTitle="Download CV"
                                 component={"a"}
                                 target="_blank"
-                                href={overleafResume}
+                                href={resume}
                                 startIcon={<PictureAsPdfIcon />}
                             />
                         </Box>
