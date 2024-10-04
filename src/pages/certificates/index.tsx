@@ -123,7 +123,16 @@ const CertificatesPage = () => {
                                 >
                                     {
                                         item?.tag?.map((items, index) => (
-                                            <span key={index} className={`text-${getColor(index)}`}>{items}</span>
+                                            <span key={index} style={{
+
+                                                fontFamily: "FiraCode",
+                                                fontSize: '12px',
+                                                padding: '2px 6px 2px 6px',
+                                                fontWeight: '400',
+                                                justifyContent: 'center',
+                                                border: '1px solid #C470DB',
+                                                borderRadius: '15px'
+                                            }} className={`text-${getColor(index)}`}>{items}</span>
                                         ))
                                     }
                                 </div>
