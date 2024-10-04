@@ -177,7 +177,7 @@ const AboutPage = () => {
                 style={{
                     border: '1px solid #ABB2BF',
                     display: 'inline-block',
-                    minWidth: '200px',
+                    minWidth: '190px',
                     maxWidth: '300px',
                     flexGrow: 1,
                     flexShrink: 1,
@@ -189,7 +189,8 @@ const AboutPage = () => {
                 <div
                     style={{
                         borderBottom: '1px solid #ABB2BF',
-                        display: 'block',
+                        display: 'd-flex',
+                        flexDirection: 'column',
                         width: '100%',
                         alignSelf: 'center',
 
