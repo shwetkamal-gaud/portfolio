@@ -124,7 +124,7 @@ const Skills = () => {
                         fontWeight={600}
                         textAlign={'start'}
                         text={title}
-                        p={'10px 0px 10px 1px'}
+                        p={'11px'}
                     />
                 </div>
                 <ul

@@ -6,6 +6,7 @@ import { LogoImg, SunIcon } from '@/assets/svg'
 import Typography from './Typography'
 import Link from 'next/link'
 import DropDown from './DropDown'
+import { Offcanvas } from 'bootstrap';
 
 import { EmailIcon, GithubIcon, TelegramIcon } from "../assets/svg";
 
@@ -100,6 +101,28 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
     const [coords, setCoords] = useState({ x: -1, y: -1 });
     const [isRippling, setIsRippling] = useState(false);
     const listRef = useRef<HTMLDivElement>(null)
+    const offcanvasRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+
+            import('bootstrap/dist/js/bootstrap').then(({ Offcanvas }) => {
+                if (offcanvasRef.current) {
+                    const bsOffcanvas = Offcanvas.getInstance(offcanvasRef.current) || new Offcanvas(offcanvasRef.current);
+                    // Function to close the offcanvas programmatically
+                    const handleCloseOffcanvas = () => {
+                        bsOffcanvas.hide();
+                    };
+
+                    // Close the offcanvas on link click
+                    document.querySelectorAll('.drawer-link').forEach((link) => {
+                        link.addEventListener('click', handleCloseOffcanvas);
+                    });
+                }
+            });
+        }
+    }, []);
+
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -141,7 +164,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                     <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="sidenav offcanvas offcanvas-start" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+                    <div ref={offcanvasRef} className="sidenav offcanvas offcanvas-start" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
                         style={{
                             '--main-color': isDark ? mainBgColorDark : mainBgColorLight,
 
@@ -187,37 +210,20 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                                     <Link
                                         href={item.path}
                                         key={item.id}
-                                        style={(router.pathname === item.path ?
-                                            {
-                                                color: isDark ? '#fff' : '#000',
-                                                fontFamily: "FiraCode",
-                                                fontWeight: 600,
-                                                padding: "0.5rem 1rem",
-                                                textDecoration: 'none'
-                                            }
-                                            : {
-                                                color: isDark ? textLight : textDark,
-                                                fontFamily: "FiraCode",
-                                                fontWeight: 400,
-                                                padding: "0.5rem 1rem",
-                                                textDecoration: 'none'
-
-
-                                            })}
-                                        className='drawer-link nav-item'
-
+                                        style={{
+                                            color: router.pathname === item.path ? (isDark ? '#fff' : '#000') : isDark ? textLight : textDark,
+                                            fontFamily: 'FiraCode',
+                                            fontWeight: router.pathname === item.path ? 600 : 400,
+                                            padding: '0.5rem 1rem',
+                                            textDecoration: 'none',
+                                        }}
+                                        className="drawer-link nav-item"
                                     >
-                                        <span
-                                            style={{
-                                                color: "#C778DD"
-                                            }}
-                                        >
-                                            #
-                                        </span>
-                                        <span
-                                            className={(router.pathname === item.path || !isDark ? '' : 'hoverSpan')}
-                                        >{item.name}
-                                        </span>
+
+
+                                        <span style={{ color: '#C778DD' }}>#</span>
+                                        <span className={router.pathname === item.path || !isDark ? '' : 'hoverSpan'}>{item.name}</span>
+
                                     </Link>
                                 ))}
 
