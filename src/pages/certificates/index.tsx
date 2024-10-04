@@ -12,7 +12,7 @@ const data = [
     {
         title: 'Software developer Intern',
         platform: 'Medkart Pharmacy PVT LTD',
-        tag: ['REACT ', 'REDUX ', ' REDUX - SUGA ', 'NEXT JS ', 'BOOTSTRAP ', 'TYPESCRIPT ', 'JAVASCRIPT ', 'TAILWIND CSS ', 'HTML ', 'SCSS '],
+        tag: 'REACT, REDUX,  REDUX - SUGA, NEXT JS, BOOTSTRAP, TYPESCRIPT, JAVASCRIPT, TAILWIND CSS, HTML, SCSS',
         feedback: 'Shwetkamal dveloped many modules and performed exceptionally well. He completed all the modules very seriously and completed all the assignments with excellent results. He is the most grew intern.',
         courseCertificate: courseCertificate,
         offerLatter: offerLatter,
@@ -23,7 +23,7 @@ const data = [
     {
         title: 'Python Skill Assesment',
         platform: 'HackerRank',
-        tag: ['Python ', 'Problem Solving ', "Data Structures", 'Algorithms '],
+        tag: 'Python, Problem Solving, Data Structures, Algorithms, Basics',
         feedback: 'Shwetkamal Complted all the given Problems based on Data Structure and Algorithms Using Python Programing Language And Scored 100%.',
         courseCertificate: python,
         imageTitle1: 'Skill Assessment Certificate',
@@ -121,24 +121,30 @@ const CertificatesPage = () => {
                                 </Typography>
                                 <div className='d-flex flex-row flex-wrap gap-2 py-2 px-2'
                                 >
-                                    {
-                                        item?.tag?.map((items, index) => (
-                                            <span key={Math.random()} style={{
-                                                fontFamily: "FiraCode",
-                                                fontSize: '12px',
-                                                padding: '2px 6px 2px 6px',
-                                                fontWeight: '400',
-                                                justifyContent: 'center',
-                                                border: '1px solid #C470DB',
-                                                borderRadius: '15px'
-                                            }} className={`text-${getColor(index)}, col-auto`}>{items}</span>
-                                        ))
-                                    }
+
+                                    <span
+                                        style={{
+                                            display: 'flex',
+                                            flex: 'wrap',
+                                            flexGrow: 1,
+                                            flexShrink: 1,
+                                            flexBasis: 0,
+                                            fontFamily: "FiraCode",
+                                            fontSize: '12px',
+                                            padding: '2px 6px 2px 6px',
+                                            fontWeight: '400',
+                                            justifyContent: 'center',
+                                            border: '1px solid #C470DB',
+                                            borderRadius: '15px'
+                                        }}
+                                        key={index} className={`text-${getColor(index)}, col-auto`}>{item.tag}</span>
+
+
                                 </div>
                                 <Typography
                                     text={'Course instructor feedback:'}
                                     fontSize={16}
-                                    fontWeight={400}
+                                    fontWeight={500}
                                     p={'6px 0px 0px 6px'}
                                 >
                                     {item.feedback}
