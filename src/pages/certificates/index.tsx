@@ -12,7 +12,7 @@ const data = [
     {
         title: 'Software developer Intern',
         platform: 'Medkart Pharmacy PVT LTD',
-        tag: ['REACT', 'REDUX', ' REDUX - SUGA', 'NEXT JS', 'BOOTSTRAP', 'TYPESCRIPT', 'JAVASCRIPT', 'TAILWIND CSS', 'HTML', 'SCSS'],
+        tag: ['REACT ', 'REDUX ', ' REDUX - SUGA ', 'NEXT JS ', 'BOOTSTRAP ', 'TYPESCRIPT ', 'JAVASCRIPT ', 'TAILWIND CSS ', 'HTML ', 'SCSS '],
         feedback: 'Shwetkamal dveloped many modules and performed exceptionally well. He completed all the modules very seriously and completed all the assignments with excellent results. He is the most grew intern.',
         courseCertificate: courseCertificate,
         offerLatter: offerLatter,
@@ -23,7 +23,7 @@ const data = [
     {
         title: 'Python Skill Assesment',
         platform: 'HackerRank',
-        tag: ['Python', 'Problem Solving', "Data Structures", 'Algorithms', 'Basics'],
+        tag: ['Python ', 'Problem Solving ', "Data Structures", 'Algorithms '],
         feedback: 'Shwetkamal Complted all the given Problems based on Data Structure and Algorithms Using Python Programing Language And Scored 100%.',
         courseCertificate: python,
         imageTitle1: 'Skill Assessment Certificate',
