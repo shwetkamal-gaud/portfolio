@@ -46,7 +46,7 @@ const mySkills = [
     {
         id: 7,
         title: 'Areas of Interest',
-        items: ["Web Design and Development, ", " Mobile App Development ", "Vulnerability Assessment & Penetration Testing "]
+        items: ["Web Design and Development, ", " Mobile App Development, ", "Vulnerability Assessment & Penetration Testing "]
     },
     {
         id: 8,

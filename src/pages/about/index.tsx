@@ -45,42 +45,37 @@ successful projects on time and within budget.`
         {
             id: 2,
             title: 'Libraries & Frameworks',
-            items: ["React, ", " React Native, ", "NextJs, ", "Redux , Redux-Saga "]
+            items: ["React, ", " React Native, ", "NextJs, ", "Redux, ", "Redux-Saga "]
         },
         {
             id: 3,
             title: 'Frontend CSS Library',
-            items: ["HTML/CSS, ", "SASS, ", "SCSS, ", " Material-UI, ", "Tailwind CSS, ", "Bootstrap, ", "Native Base, "]
+            items: ["HTML/CSS,", "SASS, ", "SCSS, ", " Material-UI, ", "Tailwind CSS, ", "Bootstrap, ", "Native Base, "]
         },
         {
             id: 4,
             title: 'Other Skills & Tools',
-            items: ["Git/Github, ", " VS Code, ", "Android Studio, "]
+            items: ["Git/Github, ", " VS Code, ", "Android Studio, ", "Adobe Photoshop, ", "Adobe Illustrator "]
         },
         {
             id: 5,
             title: 'Cloud/Databases',
-            items: ["MongoDB(Exploring), ", "PostgreSQL(Exploring)"]
+            items: ["MongoDB(Exploring), ", "PostgreSQL(Exploring) "]
         },
         {
             id: 7,
             title: 'Areas of Interest',
-            items: ["Web Design and Development, ", " Mobile App Development, ", "Vulnearability Assement & Penetration Testing"]
+            items: ["Web Design and Development, ", " Mobile App Development, ", "Vulnerability Assessment & Penetration Testing "]
         },
         {
             id: 8,
             title: 'Soft Skills',
-            items: ["Problem Solving, Self-learning, ", "Adaptability "]
-        },
-        {
-            id: 9,
-            title: 'Other Skills',
-            items: ["Adobe Illustrator, ", "Adobe Photoshop "]
+            items: ["Problem Solving, ", "Self-learning, ", "Adaptability "]
         },
         {
             id: 6,
             title: 'Communication Languages',
-            items: ["Hindi, ", " English, ", " Gujarati "]
+            items: ["Hindi, ", " English, ", " Gujarati"]
         }
     ],
     funFact: [
