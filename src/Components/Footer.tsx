@@ -18,7 +18,7 @@ const footerData = {
         {
             id: 2,
             name: 'linkedin',
-            link: "https://www.linkedin.com/in/shwetkamalgaud/",
+            link: "https://www.linkedin.com/in/shwetkamalguad/",
             img: <LinkDinIcon />
         },
         {

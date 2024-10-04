@@ -12,9 +12,9 @@ const contactData = {
     socailAccounts: [
         {
             id: 1,
-            name: 'Linkein',
+            name: 'LinkedIn',
             icon: linkedinIcon,
-            link: 'https://linkedin.com/in/shwetkamalgaud',
+            link: 'https://www.linkedin.com/in/shwetkamalguad/',
             text: 'Shwetkamal Gaud',
             isEmail: false
         },
@@ -123,7 +123,7 @@ const ContactsPage = () => {
                                                     fontWeight={400}
                                                     fontSize={16}
                                                     color={isDark ? textLight : textGray}
-                        
+
                                                 >
                                                     {item?.text}
                                                 </Typography>
