@@ -123,8 +123,7 @@ const CertificatesPage = () => {
                                 >
                                     {
                                         item?.tag?.map((items, index) => (
-                                            <span key={index} style={{
-
+                                            <span key={Math.random()} style={{
                                                 fontFamily: "FiraCode",
                                                 fontSize: '12px',
                                                 padding: '2px 6px 2px 6px',
