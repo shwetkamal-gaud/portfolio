@@ -6,8 +6,6 @@ import { LogoImg, SunIcon } from '@/assets/svg'
 import Typography from './Typography'
 import Link from 'next/link'
 import DropDown from './DropDown'
-import { Offcanvas } from 'bootstrap';
-
 import { EmailIcon, GithubIcon, TelegramIcon } from "../assets/svg";
 
 const sidebarData = [
@@ -109,19 +107,16 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
             import('bootstrap/dist/js/bootstrap').then(({ Offcanvas }) => {
                 if (offcanvasRef.current) {
                     const bsOffcanvas = Offcanvas.getInstance(offcanvasRef.current) || new Offcanvas(offcanvasRef.current);
-                    // Function to close the offcanvas programmatically
                     const handleCloseOffcanvas = () => {
                         bsOffcanvas.hide();
                     };
-
-                    // Close the offcanvas on link click
                     document.querySelectorAll('.drawer-link').forEach((link) => {
                         link.addEventListener('click', handleCloseOffcanvas);
                     });
                 }
             });
         }
-    }, []);
+    }, [offcanvasRef]);
 
 
     useEffect(() => {
