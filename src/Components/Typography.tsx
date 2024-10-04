@@ -9,13 +9,13 @@ interface TypographyInterface {
     fontWeight?: number
     fontSize?: string | number
     fontFamily?: string
-    textAlign?: any
+    textAlign?: 'left' | 'right' | 'center' | 'justify' | 'start' | 'end';
     bB?: string | number
     p?: string | number
     cursor?: string
     onMouseOver?: MouseEventHandler<HTMLParagraphElement>
     onMouseLeave?: MouseEventHandler<HTMLParagraphElement>
-    onClick?: Function
+    onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 const Typography: React.FC<TypographyInterface> = ({ children, text, color, fontWeight, fontSize, textAlign, bB, p, cursor, onMouseOver, onMouseLeave, onClick }) => {
@@ -24,7 +24,7 @@ const Typography: React.FC<TypographyInterface> = ({ children, text, color, font
 
 
     return (
-        <div className='d-flex align-items-center justify-content-start ' onClick={onClick ? () => onClick() : () => { }} >
+        <div className='d-flex align-items-center justify-content-start ' onClick={onClick} >
             <h5 className='mb-0 ' style={{
                 fontFamily: "FiraCode", fontWeight: fontWeight ? fontWeight : 800,
                 fontSize: fontSize ? fontSize : '1rem', color: color ? color : isDark ? textLight : textDark,

@@ -4,7 +4,7 @@ const getInitialTheme = () => {
         return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 }
-interface Color {
+export interface Color {
     id: number
     name: string
     mode: string

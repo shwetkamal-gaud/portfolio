@@ -18,7 +18,7 @@ interface Data {
     isPrivate: boolean
     liveUrl?: string
     youtubeUrl?: string
-    cardImage?: any
+    cardImage?: string
     githubUrl?: string
 
 }
@@ -32,25 +32,7 @@ interface PortfolioData {
 }
 
 const portfolioData: PortfolioData[] = [
-    {
-        id: 2,
-        results: {
-            title: 'web 2.0 projects',
-            data: [
-                {
-                    id: 8,
-                    title: 'Portfolio',
-                    skills: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
-                    description: `It's shows deltails of my experiences, skills, projects etc..`,
-                    figma: "",
-                    isPrivate: true,
-                    liveUrl: 'https://portfolio-gaud-shwetkamal-kamlesh-kumars-projects.vercel.app/',
-                    youtubeUrl: '',
-                },
 
-            ],
-        }
-    },
     {
         id: 1,
         results: {
@@ -62,7 +44,7 @@ const portfolioData: PortfolioData[] = [
                     skills: ["React Native", "Redux", "Redux-Saga", "Native Base", "React-Native-Paper", "yup"],
                     description: `Multifactor Authentication App For Authenticating user using totp code.`,
                     cardImage: upcopo2,
-                    
+                    githubUrl: 'https://github.com/mrskg0438/multifactor-authentication',
                     isPrivate: true
                 },
 
@@ -77,7 +59,7 @@ const ProjectPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
-    const Header = ({ title, isBack, text }: { title: any, isBack: any, text: string }) => {
+    const Header = ({ title, isBack, text }: { title: string, isBack: boolean, text: string }) => {
         return (
             <div className='d-flex flex-row gap-2 align-items-center py-4 w-100'
             >
@@ -123,7 +105,7 @@ const ProjectPage = () => {
         return (
             <div className='d-flex flex-row justify-content-center flex-wrap gap-2'>
                 {
-                    data.map((item: any) => {
+                    data.map((item: Data) => {
                         return (
                             <div key={item.id}
                                 style={{
@@ -134,15 +116,16 @@ const ProjectPage = () => {
                                     style={{
                                         aspectRatio: '16/9',
                                         borderBottom: '1px solid #ABB2BF',
-                                        display: 'block',
+                                        display: 'flex',
+                                        justifyContent: 'center',
                                         width: '100%',
                                     }}
                                 >
-                                    <Image
+                                    <Image className='img-fluid'
+                                        style={{ alignSelf: 'center', width: '22rem', height: '20rem', padding: 2 }}
                                         alt={item.title}
-                                        src={item.cardImage}
-                                        width={400}
-                                        height={250}
+                                        src={item.cardImage ? item.cardImage : ''}
+
                                     />
                                 </div>
                                 <ul className='w-100'
@@ -160,7 +143,7 @@ const ProjectPage = () => {
                                     }}
                                 >
                                     {
-                                        item.skills.map((skill: any) => {
+                                        item.skills.map((skill: string) => {
                                             return (
                                                 <li
                                                     key={skill}

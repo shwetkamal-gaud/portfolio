@@ -1,5 +1,6 @@
 import { changeThemeWithColor } from '@/redux/actions/action';
 import { RootState } from '@/redux/reducers';
+import { Color } from '@/redux/reducers/themeReducer';
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -7,7 +8,7 @@ import { useSelector } from 'react-redux';
 const DropDown = ({ children }: { children: ReactNode }) => {
     const [listOpen, setListOpen] = useState<boolean>()
     const listRef = useRef<HTMLDivElement>(null);
-    const {  color } = useSelector((state: RootState) => state.theme)
+    const { color } = useSelector((state: RootState) => state.theme)
     const [selectedIndex, setSelectedIndex] = useState(0);
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -33,7 +34,7 @@ const DropDown = ({ children }: { children: ReactNode }) => {
                 {children}
             </div>
             {listOpen && <ul className="dd-list  p-3 justify-content-center  gap-3 card shadow rounded " style={{ width: '10rem', listStyleType: 'none', position: 'absolute', border: 0, }}>
-                {color.map((item: any) => (
+                {color.map((item: Color) => (
                     <li onClick={() => {
                         dispatch(changeThemeWithColor(item))
                         handleClose()

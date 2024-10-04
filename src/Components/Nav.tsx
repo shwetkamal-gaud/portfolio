@@ -6,7 +6,7 @@ import { LogoImg, SunIcon } from '@/assets/svg'
 import Typography from './Typography'
 import Link from 'next/link'
 import DropDown from './DropDown'
-import SideBar from './Sidebar'
+import SideBar from './SideBar'
 
 
 const navbarData = {

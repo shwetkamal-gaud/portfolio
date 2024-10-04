@@ -21,27 +21,27 @@ const mySkills = [
     {
         id: 1,
         title: "Programming Languages",
-        items: ["JavaScript,TypeScript,", "Python,", "Java,", "C/C++,"]
+        items: ["JavaScript,","TypeScript,", "Python,", "Java,", "C/C++,"]
     },
     {
         id: 2,
         title: 'Libraries & Frameworks',
-        items: ["React ,", " React Native, ", "NextJs, ", "Redux,", "Redux-Saga"]
+        items: ["React ,", " React Native,", "NextJs,", "Redux,", "Redux-Saga"]
     },
     {
         id: 3,
         title: 'Frontend CSS Library',
-        items: ["HTML/CSS,", "SASS, ", " Material-UI, ", "Tailwind CSS,", "Bootstrap, ", "Native Base, "]
+        items: ["HTML/CSS,", "SASS,","SCSS,", " Material-UI,", "Tailwind CSS,", "Bootstrap,", "Native Base,"]
     },
     {
         id: 4,
         title: 'Other Skills & Tools',
-        items: ["Git/Github, ", " VS Code, ", "Android Studio, ", "Adobe Photoshop, ", "Adobe Illustrator"]
+        items: ["Git/Github,", " VS Code,", "Android Studio,", "Adobe Photoshop,", "Adobe Illustrator"]
     },
     {
         id: 5,
         title: 'Cloud/Databases',
-        items: ["MongoDB(Exploring), ", "PostgreSQL(Exploring)"]
+        items: ["MongoDB(Exploring),", "PostgreSQL(Exploring)"]
     },
     {
         id: 7,

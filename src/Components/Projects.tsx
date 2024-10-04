@@ -2,7 +2,6 @@ import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import image1 from '../assets/images/app.svg'
-import image2 from '../assets/images/app.svg'
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
@@ -18,15 +17,7 @@ const homeProtfolioData = [
         cardImage: image1,
         isPrivate: true
     },
-    {
-        id: 8,
-        title: 'Portfolio',
-        skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
-        description: `It's shows deltails of my experiences, skills, projects etc..`,
-        figma: "",
-        cardImage: image2,
-
-    },
+    
 ]
 
 
@@ -51,18 +42,19 @@ const Projects = () => {
                                     style={{
                                         aspectRatio: '16/9',
                                         borderBottom: '1px solid #ABB2BF',
-                                        display: 'block',
+                                        display: 'flex',
                                         width: '100%',
-                                        alignSelf: 'center'
+                                        alignContent: 'center',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
 
                                     }}
                                 >
-                                    <Image
-                                        style={{ alignSelf: 'center' }}
+                                    <Image className='img-fluid'
+                                        style={{ alignSelf: 'center', width: '22rem', height: '20rem', padding: 2 }}
                                         alt={item.title}
                                         src={item.cardImage}
-                                        width={350}
-                                        height={220}
+
                                     />
                                 </div>
                                 <ul
