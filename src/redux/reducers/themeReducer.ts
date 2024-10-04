@@ -1,6 +1,4 @@
-
-// get device theme mode
-import { CHANGE_THEME, CHANGE_THEME_WITH_COLOR } from '../actions/themeActions'
+import { CHANGE_THEME, CHANGE_THEME_WITH_COLOR } from '../actions/action'
 const getInitialTheme = () => {
     if (typeof window !== "undefined") {
         return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

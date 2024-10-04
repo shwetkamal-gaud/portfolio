@@ -1,16 +1,11 @@
+import { emailIcon, linkedinIcon, telegramIcon } from '@/assets/Icon'
+import Typography from '@/Components/Typography'
+import { RootState } from '@/redux/reducers'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-import { useRouter } from "next/router";
-import discordIcon from "../../assets/Icon/discord.svg";
-import emailIcon from "../../assets/Icon/email.svg";
-import { Container, Grid, Stack } from "@mui/material";
-import ContainedTypography from "@/Components/ContainedTypography";
-import Link from "next/link";
-import { memo } from "react";
-import Image from "next/image";
-import ContactForm from "@/Components/ContactForm";
-import { linkedinIcon, telegramIcon } from "@/assets/Icon";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/reducers";
 
 const contactData = {
     text: `I’m interested in freelance, remote, on-site opportunities. However, if you have other requests or questions, don’t hesitate to contact me.`,
@@ -19,7 +14,7 @@ const contactData = {
             id: 1,
             name: 'Linkein',
             icon: linkedinIcon,
-            link: 'https://linkedin.com/in/shwetkamal-gaud',
+            link: 'https://linkedin.com/in/shwetkamalgaud',
             text: 'Shwetkamal Gaud',
             isEmail: false
         },
@@ -45,138 +40,104 @@ const contactData = {
     ],
     socailAccountsTitle: 'Message me here'
 }
-const ContactMe = () => {
+const ContactsPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const { text, socailAccounts, socailAccountsTitle } = contactData;
     const router = useRouter()
     const Header = () => {
         return (
-            <Stack spacing={2}>
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    pt={4}
-                >
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        alignItems="center"
-                    >
-                        <ContainedTypography
+            <div className='d-flex gap-2 flex-column w-100' >
+                <div className='d-flex flex-row align-items-center w-100 justify-content-between gap-2 pt-5'>
+                    <div className='d-flex flex-row gap-2 align-items-center'>
+                        <Typography
                             text='/'
                             color='#C778DD'
                             fontWeight={500}
-                            fontSize={{
-                                xs: 24,
-                                sm: 32,
-                            }}
+                            fontSize={32}
                         >
                             <span style={{ color: isDark ? textWhite : textDark }}>
-                                contacts
+                                education
                             </span>
 
-                        </ContainedTypography>
-                    </Stack>
-                    <ContainedTypography
+                        </Typography>
+                    </div>
+                    <Typography
                         fontWeight={400}
                         fontSize={16}
+                        onClick={() => router.back()}
+                        bB={'2px solid #C778DD'}
+                        cursor={'pointer'}
 
-                        onClick={() => { router.back() }}
-                        sx={{
-                            cursor: 'pointer',
-                            borderBottom: '2px solid #C778DD',
-                            "&:hover": {
-                                color: '#C778DD'
-                            }
-                        }}
                     >
                         {'<'}~~ Back
-                    </ContainedTypography>
-                </Stack>
-            </Stack>
+                    </Typography>
 
+                </div>
+            </div>
         )
     }
+
     return (
-        <Container maxWidth="xl">
-            <Stack
-                pb={8}
+        <div className='container-xl'>
+            <div className='d-flex flex-column pb-5'
+
             >
                 <Header />
-                <Grid container spacing={2}
-                    sx={{
-                        alignItems: 'center',
-                    }}
-                >
-                    <Grid item xs={12} md={6}  >
-                        <Stack
-                            spacing={3}
-                            py={8}
-                        >
-                            <ContainedTypography
+                <div className='container row gap-2 d-flex align-items-center'>
+                    <div className='item col-xs-12 col-md-6'   >
+                        <div className='d-flex flex-column gap-3 py-5'>
+                            <Typography
                                 color={isDark ? textLight : textGray}
                                 fontWeight={400}
                                 fontSize={16}
                             >
                                 {text}
-                            </ContainedTypography>
-                        </Stack>
+                            </Typography>
+                        </div>
                         {/* <ContactForm /> */}
-                    </Grid>
-                    <Grid item xs={12} md={6}  >
-                        <Stack
-                            justifyContent="center"
-                            sx={{
-                                alignItems: {
-                                    xs: 'start', sm: 'center',
-                                },
-                            }}
-                        >
-                            <Stack
-                                sx={{
+                    </div>
+                    <div className='item col-xs-12 col-md-6'>
+                        <div className='d-flex flex-column justify-content-center align-items-md-start align-items-xs-center'>
+                            <div className='d-flex flex-column gap-1'
+                                style={{
                                     border: '1px solid #ABB2BF',
-                                    p: 1,
+                                    padding: 10,
                                 }}
-                                spacing={1}
+
                             >
-                                <ContainedTypography>
+                                <Typography>
                                     {socailAccountsTitle}:
-                                </ContainedTypography>
+                                </Typography>
                                 {
                                     socailAccounts.map((item) => {
                                         return (
-                                            <Stack
-                                                direction="row"
-                                                spacing={1}
-                                                alignItems="center"
-                                                component={'a'}
-                                                key={Math.random()}
+                                            <a className='d-flex flex-row align-items-center text-decoration-none'
+
                                                 {...(item?.isEmail ? { href: `mailto:` + item?.link }
 
                                                     : { href: item?.link, target: '_blank' })}
                                             >
-                                                <Image src={item?.icon} alt={item?.name} />
-                                                <ContainedTypography
+                                                <Image className='sidebar' src={item?.icon} alt={item?.name} />
+                                                <Typography
                                                     fontWeight={400}
                                                     fontSize={16}
                                                     color={isDark ? textLight : textGray}
                                                     component="span"
                                                 >
                                                     {item?.text}
-                                                </ContainedTypography>
-                                            </Stack>
+                                                </Typography>
+                                            </a>
                                         )
                                     })
                                 }
-                            </Stack>
-                        </Stack>
-                    </Grid>
-                </Grid >
-            </Stack >
-        </Container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div >
+        </div>
     )
 }
 
-export default memo(ContactMe)
+export default ContactsPage

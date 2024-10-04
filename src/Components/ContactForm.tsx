@@ -1,6 +1,10 @@
-import { Button, Grid, Stack } from "@mui/material"
-import { useState } from "react"
-import Input from "./Input"
+import React, { useState } from 'react'
+import Buttons from './Buttons'
+
+
+
+
+
 
 const ContactForm = () => {
     const [data, setData] = useState({ name: '', email: '', subject: '', message: '' })
@@ -18,53 +22,52 @@ const ContactForm = () => {
         // );
     }
     return (
-        <Stack spacing={2}
-            py={8}
+        <div className='g-2 py-5' 
         >
 
             {/* <a href="mailto:email@example.com?subject='Hello from Abstract!'&body='Just popped in to say hello'">Click to Send an Email</a> */}
             <form
                 onSubmit={handleSubmit}
             >
-                <Grid container spacing={1} >
+                <div container spacing={1} >
 
-                    <Grid item xs={12} md={4}>
+                    <div item xs={12} md={4}>
                         <Input
                             //label="Name"
                             name="name"
                             value={data.name}
-                            onChange={(e: any) => setData({ ...data, name: e.target.value })}
+                            onChange={(e) => setData({ ...data, name: e.target.value })}
                             fullWidth
                             required
                         />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
+                    </div>
+                    <div item xs={12} md={4}>
                         <Input
                             //label="Subject"
                             name="subject"
                             value={data.subject}
-                            onChange={(e: any) => setData({ ...data, subject: e.target.value })}
+                            onChange={(e) => setData({ ...data, subject: e.target.value })}
                             fullWidth
                             required
                         />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
+                    </div>
+                    <div item xs={12} md={4}>
                         <Input
                             //label="Email"
                             name="email"
                             value={data.email}
                             type="email"
-                            onChange={(e: any) => setData({ ...data, email: e.target.value })}
+                            onChange={(e) => setData({ ...data, email: e.target.value })}
                             fullWidth
                             required
                         />
-                    </Grid>
-                    <Grid item xs={12} >
+                    </div>
+                    <div item xs={12} >
                         <Input
                             //label="Message"
                             name="message"
                             value={data.message}
-                            onChange={(e: any) => setData({ ...data, message: e.target.value })}
+                            onChange={(e) => setData({ ...data, message: e.target.value })}
                             fullWidth
                             multiline
                             rows={4}
@@ -74,10 +77,10 @@ const ContactForm = () => {
                             }}
                         />
 
-                    </Grid>
+                    </div>
 
-                    <Grid item xs={12}>
-                        <Button
+                    <div item xs={12}>
+                        <Buttons
                             variant="outlined"
                             color="primary"
                             type="submit"
@@ -99,12 +102,12 @@ const ContactForm = () => {
                             }}
                         >
                             Submit
-                        </Button>
+                        </Buttons>
 
-                    </Grid>
-                </Grid>
+                    </div>
+                </div>
             </form>
-        </Stack >
+        </div >
     )
 }
 

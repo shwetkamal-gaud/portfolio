@@ -1,12 +1,10 @@
-
-import { SVGComponent, FigmaIcon, GithubIcon, LinkDinIcon, LogoImg, TelegramIcon, TwitterIcon } from "../assets/svg";
-import { Container, Grid } from "@mui/material";
-import { Box, Stack } from "@mui/system";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react'
+import { FigmaIcon, GithubIcon, LinkDinIcon, LogoImg, TelegramIcon, TwitterIcon } from '@/assets/svg'
 import logo from "../assets/images/logo.png";
-import ContainedTypography from "./ContainedTypography";
-import { RootState } from "@/redux/reducers";
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/reducers';
+import Typography from './Typography';
+
 
 const footerData = {
     socials: [
@@ -19,7 +17,7 @@ const footerData = {
         {
             id: 2,
             name: 'linkedin',
-            link: "https://www.linkedin.com/in/shwetkamal-gaud-3393511bb/",
+            link: "https://www.linkedin.com/in/shwetkamalgaud/",
             img: <LinkDinIcon />
         },
         {
@@ -51,139 +49,108 @@ const Footer = () => {
     const { socials, socialsTitle, discription, link, copyRight, logo, logoTitle,
         refText } = footerData;
     return (
-        <Container maxWidth="xl" sx={{ backgroundColor: isDark ? mainBgColorDark : mainBgColorLight, }}>
-            <Stack
-                sx={{
+        <div className='px-3 w-100' style={{ backgroundColor: isDark ? mainBgColorDark : mainBgColorLight, }}>
+            <div className='d-flex py-5 flex-column justify-content-center align-itesm-center'
+                style={{
                     borderTop: '1px solid #ABB2BF',
-                    py: 8,
+
                 }}
             >
-                <Grid container spacing={2}
+                <div className=' row text-center  '
                 >
-                    <Grid item xs={12} md={6}
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                        }}
+                    <div className='item  col-xs-12 col-md-6'
+
                     >
-                        <Stack
-                            spacing={4}
+                        <div className='d-flex flex-column gap-4 justify-content-center align-items-center'
+
                         >
-                            <Stack
-                                direction="row"
-                                spacing={6}
+                            <div className='d-flex justify-content-center align-items-center flex-row gap-5'
+
                             >
-                                <Stack
-                                    direction="row"
-                                    alignItems="center"
-                                    spacing={1}
-                                    component="a"
+                                <a className='d-flex flex-row   gap-1'
+
                                     href="/"
-                                    sx={{
+                                    style={{
+                                        textDecoration: 'none',
                                         cursor: "pointer",
+                                        alignItems: 'center'
                                     }}
                                 >
                                     <LogoImg
                                         iconColor={isDark ? textLight : textDark}
                                     />
-                                    <ContainedTypography>
+                                    <Typography>
                                         {logoTitle}
-                                    </ContainedTypography>
-                                </Stack>
-                                <ContainedTypography
-                                    fontSize="16px"
-                                    fontWeight={400}
-                                    color={isDark ? textLight : textGray}
-                                    component={"a"}
+                                    </Typography>
+                                </a>
+                                <a style={{ textAlign: 'start', textDecoration: 'none', fontSize: "18px", fontWeight: 400, color: isDark ? textLight : textGray }}
+
                                     href="/"
                                     target="_blank"
                                 >
                                     {link}
-                                </ContainedTypography>
-                            </Stack>
+                                </a>
+                            </div>
 
-                            <ContainedTypography
-                                fontSize="16px"
+                            <Typography
+                                fontSize="18px"
                                 fontWeight={400}
-                                align="center"
+                                textAlign={'center'}
                             >
                                 {discription}
-                            </ContainedTypography>
-                        </Stack>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Stack
-                            alignItems="center"
-                            justifyContent='center'
+                            </Typography>
+                        </div>
+                    </div>
+
+                    <div className='item col-xs-12 col-md-6'>
+                        <div className='d-flex flex-column align-items-center justify-content-center'
                         >
-                            <ContainedTypography>
+                            <Typography>
                                 {socialsTitle}
-                            </ContainedTypography>
-                            <Stack
-                                direction="row"
-                                py={1}
-                                gap={1}
+                            </Typography>
+                            <div className='d-flex  py-1 gap-1'
                             >
                                 {
                                     socials.map((item, index) => {
                                         return (
-                                            <Box
-                                                component={"a"}
-                                                href={item.link}
-                                                target="_blank"
-                                                key={Math.random()}
-                                                sx={{
-                                                    '&:hover': {
-                                                        transform: 'scale(1.1)',
-                                                    }
-                                                }}
-                                            >
-                                                {item.img}
-
-                                            </Box>
+                                            <a className="sidebar" key={item.id} href={item.link} rel="noreferrer" target="_blank">{item.img}</a>
                                         )
                                     })
                                 }
 
 
-                            </Stack>
-                            <Stack
-                                justifyContent='center'
-                                alignItems='center'
-                            >
+                            </div>
+                            <div className='d-flex flex-column justify-content-center align-items-center'>
                                 {
                                     refText && (
                                         <>
-                                            <ContainedTypography
+                                            <Typography
                                                 fontSize="12px"
                                                 fontWeight={400}
                                                 color={isDark ? textLight : textGray}
+                                                textAlign={'start'}
                                             >
                                                 {refText}
-                                            </ContainedTypography>
-                                            <Box>
-                                                <Box
-                                                    component={"a"}
+                                            </Typography>
+                                            <div>
+                                                <a
+                                                    className="sidebar" rel="noreferrer" target="_blank"
                                                     href={"https://www.figma.com/community/file/1164933568884615740"}
-                                                    target="_blank"
+
                                                 >
                                                     <FigmaIcon />
-                                                </Box>
-                                            </Box>
+                                                </a>
+                                            </div>
                                         </>
                                     )
                                 }
-                            </Stack>
-                        </Stack>
-                    </Grid>
-                </Grid>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <Stack
-                    justifyContent="center"
-                    alignItems="center"
-                    py={6}
-                >
-                    <ContainedTypography
+                <div className='d-flex justify-content-center align-items-center py-5'>
+                    <Typography
                         fontSize="12px"
                         fontWeight={400}
                         color={isDark ? textLight : textGray}
@@ -194,11 +161,11 @@ const Footer = () => {
                         }
                         {' '}
                         {copyRight}
-                    </ContainedTypography>
-                </Stack>
-            </Stack >
-        </Container>
+                    </Typography>
+                </div>
+            </div >
+        </div>
     )
 }
 
-export default Footer 
+export default Footer

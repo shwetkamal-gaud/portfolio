@@ -1,39 +1,29 @@
+
 import React, { ReactNode } from 'react'
-import NavBar from './NavBar';
-import Footer from './Footer';
-import { Box, Toolbar } from '@mui/material';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/reducers';
+import NavBar from './NavBar'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/reducers'
+import Footer from './Footer'
+import Nav from './Nav'
 
 interface LayoutProps {
-    children: ReactNode;
+    children: ReactNode
 }
-
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const { mode, color, mainBgColorDark, mainBgColorLight, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     return (
-        <><NavBar />
-            <Box component="main" sx={{
-                p: 2,
-                pr: 3,
-                backgroundColor: isDark ? mainBgColorDark : mainBgColorLight,
-                width: '100%',
-
-            }}>
-                <Toolbar />
-                <Box
-                    sx={{
-                        pl: {
-                            xs: 4,
-                            md: 8,
-                        }
-                    }}
-                >
+        <>
+            <Nav />
+            <main
+                className={'main p-2 pr-3 mt-5 w-100 '}
+                style={{ backgroundColor: isDark ? mainBgColorDark : mainBgColorLight }}
+            >
+                <div className='ps-xs-2 ps-md-4 mt-3' >
                     {children}
-                </Box>
-            </Box>
+                </div>
+            </main>
             <Footer />
         </>
     )

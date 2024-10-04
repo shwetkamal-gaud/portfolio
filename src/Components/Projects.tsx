@@ -1,12 +1,10 @@
-import Link from "next/link"
-import ContainedTypography from "./ContainedTypography"
-import { Box, Chip, Stack } from "@mui/material"
-import ContainedButtons from "./ContainedButtons"
-import { figmaIcon, githubIcon, playIcon, worldIcon } from "../assets/Icon";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import Image from "next/image";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/reducers";
+import { RootState } from '@/redux/reducers'
+import Image from 'next/image'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import Typography from './Typography'
+import Link from 'next/link'
+
 
 
 const homeProtfolioData = [
@@ -14,51 +12,60 @@ const homeProtfolioData = [
         id: 1,
         title: 'MultiFactor Authentication',
         skils: ["React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper'],
-        description: `Multifactor Authentication App For Authentication.`,
+        description: `Multifactor Authentication App For Authenticating user using totp code.`,
         cardImage: require('../assets/images/app.svg'),
         isPrivate: true
     },
+    {
+        id: 8,
+        title: 'Portfolio',
+        skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
+        description: `It's shows deltails of my experiences, skills, projects etc..`,
+        figma: "",
+        cardImage: require('../assets/images/app.svg'),
+
+    },
 ]
+
 
 const Projects = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
+    const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {
         return (
-            <Stack direction="row"
-                justifyContent="center"
-                flexWrap="wrap"
-                // alignItems="center"
-                gap={2}
+            <div className='d-flex flex-row justify-content-center flex-wrap gap-2'
             >
                 {
                     homeProtfolioData.map((item) => {
                         return (
-                            <Box key={item.id}
-                                sx={{
+                            <div key={item.id} className='d-flex flex-column '
+                                style={{
                                     border: '1px solid #ABB2BF',
                                 }}
                             >
-                                <Box
-                                    // component="img"
-                                    sx={{
+                                <div
+
+                                    style={{
                                         aspectRatio: '16/9',
                                         borderBottom: '1px solid #ABB2BF',
                                         display: 'block',
                                         width: '100%',
-                                        //height: '200px'
+                                        alignSelf: 'center'
+
                                     }}
                                 >
                                     <Image
+                                        style={{ alignSelf: 'center' }}
                                         alt={item.title}
                                         src={item.cardImage}
                                         width={350}
                                         height={220}
                                     />
-                                </Box>
-                                <Box
-                                    component="ul"
-                                    sx={{
+                                </div>
+                                <ul
+
+                                    style={{
                                         display: 'flex',
                                         flexWrap: 'wrap',
                                         gap: '5px',
@@ -71,10 +78,9 @@ const Projects = () => {
                                     {
                                         item.skils.map((skill) => {
                                             return (
-                                                <Box
+                                                <li
                                                     key={skill}
-                                                    component="li"
-                                                    sx={{
+                                                    style={{
                                                         display: 'inline-block',
                                                         padding: '0.5rem',
                                                         color: isDark ? textDark : textWhite,
@@ -87,173 +93,101 @@ const Projects = () => {
                                                     }}
                                                 >
                                                     {skill}
-                                                </Box>
+                                                </li>
                                             )
                                         })
                                     }
-                                </Box>
-                                <Stack
-                                    p={2}
-                                    spacing={2}
-                                    maxWidth="360px"
-
+                                </ul>
+                                <div className='d-flex flex-column p-2 g-2' style={{ maxWidth: "360px" }}
                                 >
-                                    <Box
-                                        fontSize={24}
-                                        fontWeight={500}
-                                        color={isDark ? textWhite : textDark}
-
+                                    <div
+                                        style={{
+                                            fontSize: 24,
+                                            fontWeight: 500,
+                                            gap: 2,
+                                            color: isDark ? textWhite : textDark,
+                                            fontFamily: 'FiraCode'
+                                        }}
                                     >
-                                        {item.title}
-                                        {
-                                            item?.isPrivate && (
+                                        {item.title}<span style={{
+                                            marginLeft: 10,
+                                            fontFamily: "FiraCode",
+                                            fontSize: '12px',
+                                            padding: '2px 6px 2px 6px',
+                                            fontWeight: '400',
+                                            color: isDark ? textWhite : textDark,
+                                            justifyContent: 'center',
+                                            border: '1px solid #C470DB',
+                                            borderRadius: '15px'
+                                        }}>Public</span>
 
-                                                <Chip
-                                                    sx={{
-                                                        m: 1,
-                                                        fontFamily: "FiraCode",
-                                                        fontSize: '14px',
-                                                        fontWeight: '400',
-                                                        //backgroundColor: '#C470DB',
-                                                        color: isDark ? textWhite : textDark,
-                                                        borderColor: '#C470DB',
-                                                    }}
-                                                    label="Private"
-                                                    //color='warning'
-                                                    size="small"
-                                                    variant="outlined"
-                                                />
-                                            )
-                                        }
-                                    </Box>
-                                    <ContainedTypography
+                                    </div>
+                                    <Typography
                                         fontSize={14}
                                         fontWeight={400}
                                         color={isDark ? textLight : textDark}
+                                        textAlign={'start'}
+                                        p={'10px 0px 0px 0px'}
                                     >
                                         {item.description}
-                                    </ContainedTypography>
-                                    {/* <Box
-                                        display="flex"
-                                        gap={2}
-                                        flexWrap="wrap"
-                                    >
-                                        {
-                                            item.liveUrl && <ContainedButtons
-                                                btnTitle="Live "
-                                                component={'a'}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={item.liveUrl}
-                                                startIcon={<Box component={'img'} src={worldIcon} alt="play" height={16} width={16} />}
+                                    </Typography>
 
-                                            />
-                                        }
-                                        {
-                                            item.figma && <ContainedButtons
-                                                btnTitle="Figma "
-                                                component={'a'}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={item.figma}
-                                                endIcon={<Box component={'img'} src={figmaIcon} alt="play" height={24} width={24} />}
-                                            />
-                                        }
-                                        {
-                                            item.githubUrl && <ContainedButtons
-                                                btnTitle="Github repo"
-                                                component={'a'}
-                                                href={item.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                startIcon={<Box component={'img'} src={githubIcon} alt="play" height={24} width={24} />}
-                                            />
-                                        }
-                                        {
-                                            item.youtubeUrl && <ContainedButtons
-                                                btnTitle="Demo"
-                                                component={'a'}
-                                                href={item.youtubeUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                endIcon={<Box component={'img'} src={playIcon} alt="play" height={24} width={24} />}
-                                            />
+                                </div>
 
-                                        }
-
-                                    </Box> */}
-                                </Stack>
-
-                            </Box>
+                            </div>
                         )
                     })
                 }
-            </Stack>
+            </div>
         )
     }
     return (
-        <Stack
-        >
-            <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                py={4}
+        <div className='d-flex  flex-column'>
+            <div className='d-flex flex-row justify-content-between align-items-center py-4 gap-1'
             >
-                <Stack
-                    direction="row"
-                    spacing={2}
-                    alignItems="center"
+                <div className='d-flex flex-row gap-2 align-items-center '
+
                 >
-                    <ContainedTypography
+                    <Typography
                         text='#'
                         color='#C778DD'
                         fontWeight={500}
-                        fontSize={{
-                            xs: 20,
-                            sm: 32,
-                        }}
+                        fontSize={32}
                     >
-                        <span style={{ color: isDark ? textWhite : textDark }}>
+                        <span className='' style={{ color: isDark ? textWhite : textDark }}>
                             Projects
                         </span>
 
-                    </ContainedTypography>
-                    <Box
-                        sx={{
-                            width: {
-                                xs: '10px', sm: '40px',
-                                md: '60px', lg: '100px',
-                            },
+                    </Typography>
+
+                    <div className='ms-3'
+                        style={{
+
+                            width: 103,
                             height: '1.5px',
                             backgroundColor: '#C778DD',
                         }}
                     />
-                </Stack>
-                <Link href={'/projects'}>
-                    <ContainedTypography
+                </div>
+                <Link className='' href={'/projects'} style={{ textDecoration: 'none' }}>
+                    <Typography
                         fontWeight={400}
-                        fontSize={{
-                            xs: 12,
-                            sm: 16,
-                        }}
-                        sx={{
-                            cursor: 'pointer',
-                            borderBottom: '2px solid #C778DD',
-                            "&:hover": {
-                                color: '#C778DD'
-                            }
-                        }}
+                        fontSize={14}
+                        cursor={'pointer'}
+                        bB={'2px solid #C778DD'}
+                        onMouseOver={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}
+                        color={isHovered ? '#C778DD' : isDark ? textWhite : textDark}
                     >
                         View all ~~{'>'}
-                    </ContainedTypography>
+                    </Typography>
                 </Link>
 
 
-            </Stack>
+            </div>
             <ProjectCard
             />
-        </Stack>
+        </div>
     )
 }
 

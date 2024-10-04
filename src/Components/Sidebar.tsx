@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+
 import React from "react";
 import { EmailIcon, GithubIcon, TelegramIcon } from "../assets/svg";
 
@@ -21,51 +21,24 @@ const sidebarData = [
         link: "mailto: gaudshwetkamal0438@gmail.com",
         id: 3
     }
-
 ]
-export default function Sidebar() {
+
+
+const SideBar = () => {
     return (
-        <Stack
-            sx={{
-                width: "100%",
-                pt: 4
-            }}
-        >
-            <Stack
-                alignItems="center"
-                spacing={2}
-                width="35%"
-            >
-                <Box
-                    sx={{
-                        width: "2px",
-                        height: 240,
-                        backgroundColor: "#ABB2BF",
-                    }}
-                />
-                <Stack>
+        <div className="d-flex align-items-center justify-content-center  w-100 pt-4 ">
+            <div className="d-flex flex-column  align-items-center gap-2" style={{ width: '35%' }}>
+                <div className="d-none d-lg-block" style={{ display: "block", width: '2px', height: 240, backgroundColor: '#ABB2BF' }}></div>
+                <div className="d-flex flex-lg-column flex-row">
                     {
                         sidebarData.map((item) => (
-                            <Box
-                                component="a"
-                                href={item.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                key={item.id}
-                                sx={{
-                                    "&:hover": {
-                                        transform: "scale(1.1)",
-                                        // transition: "all 0.3s ease-in-out",
-                                    },
-                                }}
-                            >  {item.icon}
-                            </Box>
+                            <a className="sidebar" key={item.id} href={item.link} rel="noreferrer" target="_blank">{item.icon}</a>
                         ))
                     }
-
-                </Stack>
-
-            </Stack>
-        </Stack>
+                </div>
+            </div>
+        </div>
     )
 }
+
+export default SideBar

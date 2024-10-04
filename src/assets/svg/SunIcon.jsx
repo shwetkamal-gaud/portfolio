@@ -1,7 +1,7 @@
 import * as React from "react"
 
 const SunIcon = ({ iconColor, ...props }) => (
-    <svg
+    <svg className="content"
         width={23}
         height={24}
         fill="none"

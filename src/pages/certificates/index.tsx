@@ -1,89 +1,75 @@
+
 import React from 'react'
 import courseCertificate from '../../assets/images/certification/Certificate.jpg';
+import python from '../../assets/images/certification/python_basic certificate.png'
 import offerLatter from '../../assets/images/certification/Internship Letter-Shwetkamal Gaud-Silveroak-1.png';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
-import { Box, Chip, Container, Stack } from '@mui/material';
-import ContainedTypography from '@/Components/ContainedTypography';
-import { useRouter } from 'next/router';
+import Typography from '@/Components/Typography';
 import Image from 'next/image';
-const data = {
-    title: 'Software developer Intern',
-    platform: 'Medkart Pharmacy PVT LTD',
-    tag: ['REDUX', 'REACT - REDUX', ' REDUX - SUGA', 'NextJs', 'Bootstrap', 'TypeScript', 'JavaScript', 'Tailwind CSS'],
-    // feedback: 'MD. Abdul Kader participated in Learn with Sumit Platform presents "Think in a Redux Way" course and performed exceptionally well. He completed all the modules very seriously and participated in all the quizzes & all the assignments with excellent results. He appeared in the Final Examination of the course and scored 96% marks. Learn with Sumit Platform believes he can be an excellent resource for any web development company. We wish him continued success in life.',
-    courseCertificate: courseCertificate,
-    offerLatter: offerLatter,
-}
-const Certificates = () => {
+const data = [
+    {
+        title: 'Software developer Intern',
+        platform: 'Medkart Pharmacy PVT LTD',
+        tag: ['REACT', 'REDUX', ' REDUX - SUGA', 'NEXT JS', 'BOOTSTRAP', 'TYPESCRIPT', 'JAVASCRIPT', 'TAILWIND CSS', 'HTML', 'SCSS'],
+        feedback: 'Shwetkamal dveloped many modules and performed exceptionally well. He completed all the modules very seriously and completed all the assignments with excellent results. He is the most grew intern.',
+        courseCertificate: courseCertificate,
+        offerLatter: offerLatter,
+        imageTitle1: 'Intetnship Certificate',
+        imageTitle2: 'Internship Offer Letter',
+        link: 'https://medkart.in/'
+    },
+    {
+        title: 'Python Skill Assesment',
+        platform: 'HackerRank',
+        tag: ['Python', 'Problem Solving', "Data Structures", 'Algorithms', 'Basics'],
+        feedback: 'Shwetkamal Complted all the given Problems based on Data Structure and Algorithms Using Python Programing Language And Scored 100%.',
+        courseCertificate: python,
+        imageTitle1: 'Skill Assessment Certificate',
+        link: 'https://www.hackerrank.com/certificates/c0b6b1af6e7e'
+
+    }
+]
+
+const CertificatesPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
     const Header = () => {
         return (
-            <>
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    pt={4}
-
-                >
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        alignItems="center"
-                    >
-                        <ContainedTypography
+            <div className='d-flex gap-2 flex-column w-100' >
+                <div className='d-flex flex-row align-items-center w-100 justify-content-between gap-2 pt-5'>
+                    <div className='d-flex flex-row gap-2 align-items-center'>
+                        <Typography
                             text='/'
                             color='#C778DD'
                             fontWeight={500}
-                            fontSize={{
-                                xs: 24,
-                                sm: 32,
-                            }}
-                        >
+                            fontSize={32}>
                             <span style={{ color: isDark ? textWhite : textDark }}>
-                                certification
+                                certificates
                             </span>
-
-                        </ContainedTypography>
-                        {/* <Box
-                        sx={{
-                            width: {
-                                xs: '10px', sm: '40px',
-                                md: '60px', lg: '100px',
-                            },
-                            height: '1.5px',
-                            backgroundColor: '#C778DD',
-                        }}
-                    /> */}
-                    </Stack>
-                    <ContainedTypography
+                        </Typography>
+                    </div>
+                    <Typography
                         fontWeight={400}
                         fontSize={16}
                         onClick={() => router.back()}
+                        bB={'2px solid #C778DD'}
+                        cursor={'pointer'}
 
-                        sx={{
-                            borderBottom: '2px solid #C778DD',
-                            "&:hover": {
-                                color: '#C778DD'
-                            }
-                        }}
                     >
                         {'<'}~~ Back
-                    </ContainedTypography>
+                    </Typography>
 
-
-                </Stack>
-                <ContainedTypography
-                    fontSize={16}
-                    fontWeight={400}
+                </div>
+                <Typography
+                    text='My Certifications'
                     color={isDark ? textLight : textGray}
-                >
-                    My Certifications
-                </ContainedTypography>
-            </>
+                    fontWeight={400}
+                    fontSize={16}
+                />
+            </div>
         )
     }
     const getColor = (index: any) => {
@@ -101,162 +87,104 @@ const Certificates = () => {
             default:
                 return 'primary';
         }
-
     }
+
     return (
-        <Container maxWidth='xl'>
-            <Stack pb={8}>
+        <div className='container' >
+            <div className='d-flex flex-column pb-5'>
                 <Header />
-                <Stack
-                    mt={4}
-                    p={2}
-                    borderRadius={2}
-                    sx={{
+                <div className='d-flex flex-column mt-4 gap-2 pb-4'
+                    style={{
+                        borderRadius: 2,
                         backgroundColor: isDark ? '#2E3440' : '#f5f5f5',
-                    }}
+                    }} >
+                    {
+                        data.map((item, index) => (
+                            <>
+                                <Typography p={'6px 0px 0px 6px'}>
+                                    {item?.title} by {' '}
+                                    <a href={item.link} target="_blank" rel="noreferrer"
+                                        title="Click to verify the certificate"
+                                        color='#C778DD'
+                                    >
+                                        {item?.platform}
+                                    </a>
+                                </Typography>
 
-                >
-                    <ContainedTypography>
-                        {data?.title} by {' '}
-                        <a href="https://learnwithsumit.com/certificates/verify/LWSCTXN-SNT7PO6I" target="_blank" rel="noreferrer"
-                            title="Click to verify the certificate"
-                            color='#C778DD'
-                        >
-                            {data?.platform}
-                        </a>
-                    </ContainedTypography>
-                    {/* <Stack
-                        width={'100%'}
-                        height={'1px'}
-                        mt={2}
-                        backgroundColor={'#ABB2BF'}
-                    /> */}
-                    <ContainedTypography
-                        color={isDark ? textLight : textGray}
-                        fontSize={16}
-                        fontWeight={400}
-                        mt={2}
-                    >
-                        Topics i learned from this course
-                    </ContainedTypography>
-                    <Stack
-                        direction="row"
-                        flexWrap="wrap"
-                        gap={2}
-                        py={2}
-                    >
-                        {
-                            data?.tag?.map((item, index) => (
-                                <Chip key={index} label={item}
-                                    size="small"
-                                    color={getColor(index)}
-                                />
-                            ))
-                        }
-                    </Stack>
-                    {/* <Stack
-                        width={'100%'}
-                        height={'1px'}
-                        mt={2}
-                        backgroundColor={'#ABB2BF'}
-                    /> */}
-                    <ContainedTypography
-                        color={isDark ? textWhite : textDark}
-                        fontSize={16}
-                        fontWeight={400}
-                        mt={2}
-                    >
-                        Course instructor feedback
-                    </ContainedTypography>
+                                <Typography
+                                    color={isDark ? textLight : textGray}
+                                    fontSize={16}
+                                    fontWeight={400}
+                                    p={'6px 0px 0px 6px'}
+                                >
+                                    Topics i learned from this course
+                                </Typography>
+                                <div className='d-flex flex-rwo flex-wrap gap-2 py-2 px-2'
+                                >
+                                    {
+                                        item?.tag?.map((items, index) => (
+                                            <span key={index} className={`text-${getColor(index)}`}>{items}</span>
+                                        ))
+                                    }
+                                </div>
+                                <Typography
+                                    text={'Course instructor feedback:'}
+                                    fontSize={16}
+                                    fontWeight={500}
+                                    p={'6px 0px 0px 6px'}
+                                >
+                                    {item.feedback}
+                                </Typography>
+                                <div className='d-flex flex-row flex-wrap justify-content-center gap-4 p-2'
+                                    style={{
+                                        border: '1px solid #ABB2BF',
 
-                    <Stack direction="row"
-                        justifyContent="center"
-                        flexWrap="wrap"
-                        // alignItems="center"
-                        gap={2}
-                        p={2}
-                        border={'1px solid #ABB2BF'}
-                        pb={4}
+                                    }}>
+                                    <div className='d-flex flex-column'
+                                        style={{
+                                            maxWidth: '100%',
+                                            width: 'auto',
 
-                    >
-                        <Stack
-                            width={{
-                                xs: '100%',
-                                sm: '100%',
-                                md: '30%'
-                            }}
-                        >
-                            <ContainedTypography
-                                color={isDark ? textWhite : textDark}
-                                fontSize={16}
-                                fontWeight={400}
-                                pb={2}
-                            >
-                                Course Certificate
-                            </ContainedTypography>
-                            <Box
-                                sx={{
-                                    aspectRatio: '16/9',
-                                    borderBottom: '1px solid #ABB2BF',
-                                    display: 'block',
-                                    width: '100%',
-                                    height: '400px',
-                                    borderRadius: '10px',
-                                    overflow: 'hidden'
-                                }}
-                            >
-                                <Image
-                                    alt="certificate"
-                                    src={data?.courseCertificate}
-                                    width={100}
-                                    height={100}
-                                />
-                            </Box>
-                        </Stack>
-                        <Stack
-                            width={{
-                                xs: '100%',
-                                md: '30%'
-                            }}
-                        >
-                            <ContainedTypography
-                                color={isDark ? textWhite : textDark}
+                                        }}>
+                                        <Typography p={'0px 0px 7px 0px'}>
+                                            {item.imageTitle1}
+                                        </Typography>
+                                        <Image className='img-fluid' style={{ width: '30rem', height: '30rem' }}
+                                            src={item.courseCertificate}
+                                            alt='Certificate'
 
-                                fontSize={16}
-                                fontWeight={400}
-                                pb={2}
-                            >
-                                Course Report
-                            </ContainedTypography>
-                            <Box
-                                sx={{
-                                    aspectRatio: '16/9',
-                                    borderBottom: '1px solid #ABB2BF',
-                                    display: 'block',
-                                    width: '100%',
-                                    height: '400px',
-                                    borderRadius: '10px',
-                                    overflow: 'hidden'
-                                }}
-                            >
-                                <Image
-                                    alt="certificate"
-                                    src={data?.offerLatter}
-                                    width={100}
-                                    height={100}
+                                        />
+                                    </div>
+                                    {item.imageTitle2 ?
 
-                                />
-                            </Box>
-                        </Stack>
-                    </Stack>
+                                        <div className='d-none  d-xl-block ' style={{ width: '2px', height: '34rem', backgroundColor: '#ABB2BF' }}></div> :
+                                        <></>
+                                    }
+                                    <div className='d-flex flex-column'
+                                        style={{
+                                            maxWidth: '100%',
+                                            width: 'auto'
+                                        }}>
+                                        <Typography p={'0px 0px 7px 0px'}>
+                                            {item.imageTitle2}
+                                        </Typography>
+                                        {item?.offerLatter ?
 
+                                            <Image className='img-fluid' style={{ width: '30rem', height: '30rem' }}
+                                                src={item?.offerLatter}
+                                                alt='Certificate'
 
-                </Stack >
-
-
-            </Stack >
-        </Container>
+                                            /> : <></>
+                                        }
+                                    </div>
+                                </div>
+                            </>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
     )
 }
 
-export default Certificates
+export default CertificatesPage

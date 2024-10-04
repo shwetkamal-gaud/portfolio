@@ -1,15 +1,12 @@
-
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import { Box, Container, Grid, Stack } from "@mui/material";
+import React, { useState } from 'react'
 import photo from "../../assets/images/Pi7_Passport_Photo.jpeg";
-import ContainedTypography from "@/Components/ContainedTypography";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import ContainedButtons from "@/Components/ContainedButtons";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
+import Typography from '@/Components/Typography';
+import Image from 'next/image';
+import Buttons from '@/Components/Buttons';
+
 
 const aboutMeData = {
     aboutData: [
@@ -94,7 +91,7 @@ successful projects on time and within budget.`
         "I love to travel",
         "Coding with listening songs is my hobby!",
         "I often bike with my friends",
-        "Miss my childhood days",
+        "I Miss my childhood days",
 
     ],
     resume: '/Shwetkamal_Gaud.pdf',
@@ -102,74 +99,59 @@ successful projects on time and within budget.`
 }
 
 
-const AbaoutMe = () => {
+
+const about = () => {
     const { aboutData, mySkills, funFact, resume, image } = aboutMeData;
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+    const [isHovered, setIsHovered] = useState(false)
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
     const Header = () => {
         return (
-            <Stack spacing={2}>
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    pt={4}
+            <div className='d-flex gap-2 flex-column w-100' >
+                <div className='d-flex flex-row align-items-center w-100 justify-content-between gap-2 pt-5'
                 >
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        alignItems="center"
-                    >
-                        <ContainedTypography
+                    <div className='d-flex flex-row gap-2 align-items-center'>
+                        <Typography
                             text='/'
                             color='#C778DD'
                             fontWeight={500}
-                            fontSize={{
-                                xs: 24,
-                                sm: 32,
-                            }}
+                            fontSize={32}
                         >
                             <span style={{ color: isDark ? textWhite : textDark }}>
-                                about-me
+                                about_me
                             </span>
 
-                        </ContainedTypography>
-                    </Stack>
-                    <ContainedTypography
+                        </Typography>
+                    </div>
+                    <Typography
                         fontWeight={400}
                         fontSize={16}
                         onClick={() => router.back()}
-                        sx={{
-                            borderBottom: '2px solid #C778DD',
-                            cursor: 'pointer',
-                            "&:hover": {
-                                color: '#C778DD'
-                            }
-                        }}
+                        bB={'2px solid #C778DD'}
+                        cursor={'pointer'}
+
                     >
                         {'<'}~~ Back
-                    </ContainedTypography>
-                </Stack>
-                <ContainedTypography
+                    </Typography>
+
+                </div>
+                <Typography
                     text='Who am I?'
                     color={isDark ? textLight : textGray}
                     fontWeight={400}
                     fontSize={16}
                 />
-            </Stack>
+            </div>
 
         )
     }
     const SkillHeader = () => {
         return (
-            <Stack
-                direction="row"
-                spacing={2}
-                alignItems="center"
-                pt={8}
+            <div className='d-flex flex-row gap-2 align-items-center pt-4'
+
             >
-                <ContainedTypography
+                <Typography
                     text='#'
                     color='#C778DD'
                     fontWeight={500}
@@ -179,26 +161,25 @@ const AbaoutMe = () => {
                         skils
                     </span>
 
-                </ContainedTypography>
-                <Box
-                    sx={{
-                        width: {
-                            xs: '10px', sm: '40px',
-                            md: '60px', lg: '100px',
-                        },
+                </Typography>
+                {/* {/* xs: '10px', sm: '40px',
+                md: '60px', lg: '100px', */}
+                <div className='box'
+                    style={{
+                        width: '5rem',
                         height: '1.5px',
                         backgroundColor: '#C778DD',
                     }}
                 />
-            </Stack>
+            </div>
 
             // </Stack>
         )
     }
     const SkillsCard = ({ title, skills }: { title: string, skills: any[] }) => {
         return (
-            <Box
-                sx={{
+            <div
+                style={{
                     border: '1px solid #ABB2BF',
                     display: 'inline-block',
                     minWidth: '200px',
@@ -206,56 +187,67 @@ const AbaoutMe = () => {
                     flexGrow: 1,
                     flexShrink: 1,
                     flexBasis: 0,
+                    padding: 0
                 }}
+
             >
-                <ContainedTypography
-                    sx={{
+                <div
+                    style={{
                         borderBottom: '1px solid #ABB2BF',
-                        p: 1,
-                    }}
-                    fontSize={16}
-                    fontWeight={600}
-                    text={title}
-                />
-                <Box
-                    component={"ul"}
-                    sx={{
-                        p: 1,
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        gap: 1,
-                        justifyContent: 'start',
-                        alignItems: 'start',
+                        display: 'block',
+                        width: '100%',
+                        alignSelf: 'center',
+
                     }}
                 >
-                    {skills.map((skill, index) => {
+                    <Typography
+                        fontSize={15}
+                        fontWeight={600}
+                        textAlign={'start'}
+                        text={title}
+                        p={'11px'}
+                    />
+                </div>
+                <ul
+                    style={{
+                        padding: '8px',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '8px',
+                        justifyContent: 'start',
+                        alignItems: 'start',
+                        marginTop: '16px',
+                        marginBottom: '16px'
+
+                    }}
+                >
+                    {skills?.map((skill, index) => {
                         return (
-                            <ContainedTypography
+                            <li
                                 key={index}
-                                component={"li"}
-                                fontSize={14}
-                                fontWeight={500}
-                                text={skill}
-                                color={isDark ? textLight : textGray}
-                            />
+                                style={{
+                                    listStyle: 'none',
+                                    fontSize: 14,
+                                    fontWeight: 500,
+                                    fontFamily: 'FiraCode',
+                                    color: isDark ? textLight : textGray,
+                                }}
+
+                            >{skill}</li>
                         )
                     })}
 
-                </Box>
+                </ul>
 
-            </Box >
+            </div >
         )
     }
     const FunHeader = () => {
         return (
 
-            <Stack
-                direction="row"
-                spacing={2}
-                alignItems="center"
-                pt={8}
+            <div className='d-flex flex-row gap-2 align-items-center pt-4'
             >
-                <ContainedTypography
+                <Typography
                     text='#'
                     color='#C778DD'
                     fontWeight={500}
@@ -265,164 +257,118 @@ const AbaoutMe = () => {
                         fun-facts
                     </span>
 
-                </ContainedTypography>
-                <Box
-                    sx={{
-                        width: {
-                            xs: '10px', sm: '40px',
-                            md: '60px', lg: '100px',
-                        },
+                </Typography>
+                {/* width: {
+                    xs: '10px', sm: '40px',
+                md: '60px', lg: '100px',
+                        }, */}
+                <div
+                    style={{
+                        width: '10px',
                         height: '1.5px',
                         backgroundColor: '#C778DD',
                     }}
-                />
-            </Stack>
+                > </div>
+            </div>
         )
     }
     const FunFactCard = () => {
         return (
-            <Stack
-                direction="row"
-                flexWrap="wrap"
-                gap={1}
+            <div className='d-flex flex-row flex-wrap gap-2'
             >
                 {
                     funFact.map((fact, index) => {
                         return (
-                            <Box
-                                sx={{
+                            <div
+                                style={{
                                     border: '1px solid #ABB2BF',
-                                    p: 1,
+                                    padding: '9px',
                                 }}
                                 key={Math.random()}
                             >
-                                <ContainedTypography
+                                <Typography
                                     fontSize={16}
                                     fontWeight={400}
                                     color={isDark ? textLight : textGray}
                                     text={fact}
                                 />
-                            </Box >
+                            </div >
                         )
                     })
                 }
-            </Stack>
+            </div>
 
         )
     }
     return (
-        <Container maxWidth="xl">
-            <Stack>
+        <div className='container'>
+            <div className='d-flex flex-column'>
                 <Header />
-                <Stack>
-                    <Grid container spacing={2}
-                        sx={{
-                            alignItems: 'center',
-                            py: 4,
-                        }}
-                    >
-                        <Grid item xs={12} md={4}>
-                            <Stack >
-                                <Box
-                                    sx={{
-                                        width: {
-                                            xs: '100%', sm: '100%',
-                                            md: 'auto', lg: 'auto',
-                                        },
-                                        height: {
-                                            xs: 'auto', sm: 'auto',
-                                            md: 350, lg: 600,
-                                        },
-                                        //filter: isDark && 'grayscale(100%)',
-                                        aspectRatio: '1/1',
-                                        borderRadius: 2,
-                                        overflow: 'hidden',
-
-                                    }}
-                                >
-                                    <Image
+                <div className='d-flex justify-content-center'>
+                    <div className=' container row d-flex flex-row align-items-center  py-4 '>
+                        <div className='items col-xs-12 col-md-4'>
+                            <div className='d-flex'>
+                                <div style={{ width: '45rem', height: '30rem', aspectRatio: '1/1', borderRadius: '2px', overflow: 'hidden' }}>
+                                    <Image className='img-fluid' style={{ width: '45rem', height: '30rem' }}
                                         alt='about-image'
                                         src={image}
-                                        width={500}
-                                        height={600}
+
                                     />
-                                </Box>
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={12} md={8}  >
-                            <Stack
-                                spacing={3}
-                                py={8}
-                            >
+                                </div>
+                            </div>
+                        </div>
+                        <div className='item col-xs-12 col-md-8'>
+                            <div className='d-flex flex-column  py-5'>
                                 {
                                     aboutData.map((data, index) => (
-                                        <ContainedTypography
+                                        <Typography
                                             color={isDark ? textLight : textGray}
                                             fontWeight={400}
                                             fontSize={16}
                                             key={data.id}
-                                        >{data.text}</ContainedTypography>
+                                        >{data.text}</Typography>
                                     ))
                                 }
-                                <Box
-                                    display="flex"
-                                >
-                                    <ContainedButtons
-                                        btnTitle="Download CV"
-                                        component={"a"}
-                                        target="_blank"
-                                        href={resume}
-                                        startIcon={<PictureAsPdfIcon />}
+                                <div className='d-flex'>
+                                    <a href={resume} target='_blank' >
 
-                                    />
-                                </Box>
-                            </Stack>
-                        </Grid>
+                                        <Buttons
+                                            btnTitle="Download CV"
 
-                    </Grid>
-                </Stack >
-                <Stack
-                    py={4}
-                    spacing={8}
-                >
+                                        // startIcon={<PictureAsPdfIcon />}
+                                        >
+                                        </Buttons>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='d-flex flex-column py-5 gap-5'>
                     <SkillHeader />
-                    <Stack
-                        alignItems="center"
-                    >
-                        <Stack
-                            direction="row"
-                            justifyContent="space-between"
-                            flexWrap="wrap"
-                            gap={1}
-                        >
+                    <div className='d-flex align-items-center'>
+                        <div className='d-flex row justify-content-xl-start justify-content-center flex-wrap gap-2'>
                             {
-                                mySkills?.map((skill, index) => {
-                                    return (
-                                        <SkillsCard
-                                            key={Math.random()}
-                                            title={skill?.title}
-                                            skills={skill?.items}
-                                        />
-                                    )
-                                })
+                                mySkills.map((skill, id) => (
+                                    <SkillsCard
+                                        key={id}
+                                        title={skill.title}
+                                        skills={skill.items}
+                                    />
+                                ))
                             }
+                        </div>
+                    </div>
 
-                        </Stack>
-                    </Stack>
-                </Stack>
-                <Stack
-                    py={4}
-                    pb={8}
-                    spacing={8}
-                >
+                </div>
+                <div className='d-flex flex-column py-4 pb-5 gap-5'>
                     <FunHeader />
                     <FunFactCard />
-                </Stack>
+                </div>
 
-            </Stack >
-        </Container>
+            </div >
+        </div>
     )
-
 }
 
-export default AbaoutMe
+export default about

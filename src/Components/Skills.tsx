@@ -1,15 +1,16 @@
-import { Box, Grid, Stack } from "@mui/material"
+import Image from 'next/image'
+import React from 'react'
 import skillLeftImg from '../assets/images/skillRacktangle.svg'
-import ContainedTypography from "./ContainedTypography"
-import { useSelector } from "react-redux"
-import { RootState } from "@/redux/reducers"
-import Image from "next/image"
+import Typography from './Typography'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/reducers'
+
 
 const Ractangle = () => {
     return (
-        <Stack p={4}>
+        <div className='p-4'>
             <Image src={skillLeftImg} alt="skillLeftImg" style={{ width: '100%', height: 'auto' }} />
-        </Stack >
+        </div >
 
     )
 }
@@ -17,7 +18,7 @@ const mySkills = [
     {
         id: 1,
         title: "Programming Languages",
-        items: ["JavaScript,TypeScript,", "Python,", "Java,"]
+        items: ["JavaScript,TypeScript,", "Python,", "Java,", "C/C++,"]
     },
     {
         id: 2,
@@ -57,48 +58,43 @@ const mySkills = [
 ]
 
 const Skills = () => {
+
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const Header = () => {
         return (
 
-            <Stack
-                direction="row"
-                spacing={2}
-                alignItems="center"
-                pt={8}
+            <div className='d-flex flex-row align-items-center gap-2 pt-5'
+
             >
-                <ContainedTypography
+                <Typography
                     text='#'
                     color='#C778DD'
                     fontWeight={500}
                     fontSize={32}
                 >
                     <span style={{ color: isDark ? textWhite : textDark }}>
-
                         Skills
                     </span>
 
-                </ContainedTypography>
-                <Box
-                    sx={{
-                        width: {
-                            xs: '10px', sm: '40px',
-                            md: '60px', lg: '100px',
-                        },
+                </Typography>
+
+                <div className='ms-3    '
+                    style={{
+                        width: 103,
                         height: '1.5px',
                         backgroundColor: '#C778DD',
                     }}
                 />
-            </Stack>
+            </div>
 
             // </Stack>
         )
     }
     const SkillsCard = ({ title, skills }: { title: string, skills: any[] }) => {
         return (
-            <Box
-                sx={{
+            <div
+                style={{
                     border: '1px solid #ABB2BF',
                     display: 'inline-block',
                     minWidth: '200px',
@@ -106,90 +102,98 @@ const Skills = () => {
                     flexGrow: 1,
                     flexShrink: 1,
                     flexBasis: 0,
+
                 }}
+
             >
-                <ContainedTypography
-                    sx={{
+                <div
+                    style={{
+
                         borderBottom: '1px solid #ABB2BF',
-                        p: 1,
+                        display: 'block',
+                        width: '100%',
+                        alignSelf: 'center'
                     }}
-                    fontSize={15}
-                    fontWeight={600}
-                    text={title}
-                />
-                <Box
-                    component={"ul"}
-                    sx={{
-                        p: 1,
+                >
+                    <Typography
+                        fontSize={15}
+                        fontWeight={600}
+                        textAlign={'start'}
+                        text={title}
+                        p={'10px 0px 10px 1px'}
+                    />
+                </div>
+                <ul
+                    style={{
+                        padding: '8px',
                         display: 'flex',
                         flexWrap: 'wrap',
-                        gap: 1,
+                        gap: '8px',
                         justifyContent: 'start',
                         alignItems: 'start',
+                        marginTop: '16px',
+                        marginBottom: '16px'
+
                     }}
                 >
                     {skills?.map((skill, index) => {
                         return (
-                            <ContainedTypography
+                            <li
                                 key={index}
-                                component={"li"}
-                                fontSize={14}
-                                fontWeight={500}
-                                text={skill}
-                                color={isDark ? textLight : textGray}
-                            />
+                                style={{
+                                    listStyle: 'none',
+                                    fontSize: 14,
+                                    fontWeight: 500,
+                                    fontFamily: 'FiraCode',
+                                    color: isDark ? textLight : textGray,
+                                }}
+
+                            >{skill}</li>
                         )
                     })}
 
-                </Box>
+                </ul>
 
-            </Box >
+            </div >
         )
     }
-    return <Stack
-    >
-        <Header />
-        <Grid container spacing={2}
-            sx={{
-                alignItems: "center",
-                py: 2,
-                pb: 8,
-            }}
+    return (
+        <div
         >
-            <Grid item xs={12} md={4}>
-                <Stack
-                    sx={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Ractangle />
-                </Stack>
-            </Grid>
-            <Grid item xs={12} md={8}>
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    flexWrap="wrap"
-                    gap={1}
-                >
-                    {
-                        mySkills?.map((skill, index) => {
-                            return (
-                                <SkillsCard
-                                    key={Math.random()}
-                                    title={skill?.title}
-                                    skills={skill?.items}
-                                />
-                            )
-                        })
-                    }
+            <Header />
+            <div className='container row  py-2 pb-5'
+                style={{
+                    alignItems: "center",
+                }}
+            >
+                <div className='item col-xs-12 col-md-4'  >
+                    <div className='d-flex'
+                    >
+                        <Ractangle />
+                    </div>
+                </div>
+                <div className='item col-xs-12 col-md-8 ' >
+                    <div className='d-flex row flex-wrap g-1 gap-2 justify-content-center '
 
-                </Stack>
-            </Grid>
-        </Grid>
+                    >
+                        {
+                            mySkills?.map((skill, index) => {
+                                return (
+                                    <SkillsCard
+                                        key={index}
+                                        title={skill?.title}
+                                        skills={skill?.items}
+                                    />
+                                )
+                            })
+                        }
 
-    </Stack >
+                    </div>
+                </div>
+            </div>
+
+        </ div>)
+
 }
 
 export default Skills
