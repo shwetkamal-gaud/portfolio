@@ -30,7 +30,7 @@ interface Data {
     company: string
     hireFor: string
     year: string
-    role: any[]
+    role: string[]
     address: string
 }
 
@@ -161,7 +161,7 @@ const ExperiencePage = () => {
                 >
 
                     {
-                        role.map((item, index) => {
+                        role.map((item) => {
                             return (
                                 <li style={{ fontFamily: 'FiraCode', fontSize: 14, fontWeight: 500, padding: 8, color: isDark ? textLight : textGray }}
                                     key={Math.random()}
@@ -185,7 +185,7 @@ const ExperiencePage = () => {
                 <div className='d-flex flex-column align-items-center py-5 pb-4'>
                     <div className='d-flex column-reverse justify-content-between flex-wrap gap-2' >
                         {
-                            experienceData.map((item, index) => {
+                            experienceData.map((item) => {
                                 return (
                                     <ExperienceCard
                                         key={Math.random()}

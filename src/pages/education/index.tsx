@@ -4,8 +4,15 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+interface EducationData {
+    id: number
+    title: string
+    school: string
+    year: string
+    courseWork: string
+}
 
-const educationData = [
+const educationData: EducationData[] = [
     {
         id: 1,
         title: "B.Tech in Computer Science and Engineering Specialization With Cyber Security",
@@ -68,7 +75,7 @@ const EducationPage = () => {
 
         )
     }
-    const SkillsCard = ({ data }: { data: any }) => {
+    const SkillsCard = ({ data }: { data: EducationData }) => {
         const { title, school, year, courseWork } = data;
         return (
             <div
@@ -135,7 +142,7 @@ const EducationPage = () => {
                 <div className='d-flex flex-column align-items-center py-5 pb-4'>
                     <div className='d-flex flex-row justify-content-center justify-content-xl-between flex-wrap gap-3'>
                         {
-                            educationData.map((item, index) => {
+                            educationData.map((item) => {
                                 return (
                                     <SkillsCard
                                         key={Math.random()}

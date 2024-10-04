@@ -52,7 +52,7 @@ export default function Home() {
     blockquote: { quoteText1, quoteText2, quoteText3, quoteText4, quoteBy },
     image } = heroTopSectionData;
 
-  const { mode, mainBgColorDark, mainBgColorLight, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+  const { mode, textDark, textLight, textWhite, } = useSelector((state: RootState) => state.theme)
   const isDark = Boolean(mode === 'dark')
   return (
     <div className="container d-flex align-items-center w-xxl p-0 ">

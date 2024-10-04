@@ -2,11 +2,12 @@ import { RootState } from '@/redux/reducers'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import SideBar from './SideBar'
 import { LogoImg, SunIcon } from '@/assets/svg'
 import Typography from './Typography'
 import Link from 'next/link'
 import DropDown from './DropDown'
+import SideBar from './Sidebar'
+
 
 const navbarData = {
     routes: [
@@ -53,11 +54,10 @@ interface RippleButtonProps {
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
-    const { mode, color, mainBgColorDark, mainBgColorLight, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+    const { mode, mainBgColorDark, mainBgColorLight, textDark, textLight } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const { routes, logoTitle } = navbarData
     const router = useRouter()
-    const [isHovered, setHovered] = useState(false)
     const [coords, setCoords] = useState({ x: -1, y: -1 });
     const [isRippling, setIsRippling] = useState(false);
     const listRef = useRef<HTMLDivElement>(null)
@@ -117,32 +117,33 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                         </div>
                         <div className="offcanvas-body d-flex flex-column justify-content-between justify-content-lg-end">
                             <ul className="navbar-nav mb-2 mb-lg-0 d-flex align-items-center justify-content-lg-end flex-wrap">
-                                <DropDown children={<button className='ripple-button' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-                                    const btn = e.target as HTMLButtonElement
-                                    const rect = btn.getBoundingClientRect();
-                                    setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                                    onClick && onClick(e);
-                                }
-                                }
-                                    onMouseEnter={() => setHovered(true)}
-                                    onMouseDown={() => setHovered(false)}
-                                >
-                                    {isRippling ? (
-                                        <span
-                                            className="ripple"
-                                            style={{
-                                                left: coords.x,
-                                                top: coords.y
-                                            }}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
-                                    <SunIcon iconColor={isDark ? textLight : textDark} />
-                                </button>
+                                <DropDown>
+                                    <button className='ripple-button' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+                                        const btn = e.target as HTMLButtonElement
+                                        const rect = btn.getBoundingClientRect();
+                                        setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                                        if (onClick) {
 
-                                }
-                                />
+                                            onClick(e);
+                                        }
+                                    }
+                                    }
+
+                                    >
+                                        {isRippling ? (
+                                            <span
+                                                className="ripple"
+                                                style={{
+                                                    left: coords.x,
+                                                    top: coords.y
+                                                }}
+                                            />
+                                        ) : (
+                                            ''
+                                        )}
+                                        <SunIcon iconColor={isDark ? textLight : textDark} />
+                                    </button>
+                                </DropDown>
                                 {routes.map((item) => (
                                     <Link
                                         href={item.path}

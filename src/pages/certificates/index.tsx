@@ -72,7 +72,7 @@ const CertificatesPage = () => {
             </div>
         )
     }
-    const getColor = (index: any) => {
+    const getColor = (index: number) => {
         switch (index) {
             case 0:
                 return 'primary';
@@ -100,7 +100,7 @@ const CertificatesPage = () => {
                     }} >
                     {
                         data.map((item, index) => (
-                            <>
+                            <div key={index}>
                                 <Typography p={'6px 0px 0px 6px'}>
                                     {item?.title} by {' '}
                                     <a href={item.link} target="_blank" rel="noreferrer"
@@ -178,7 +178,7 @@ const CertificatesPage = () => {
                                         }
                                     </div>
                                 </div>
-                            </>
+                            </div>
                         ))
                     }
                 </div>

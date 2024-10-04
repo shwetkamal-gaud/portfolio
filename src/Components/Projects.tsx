@@ -1,6 +1,8 @@
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import image1 from '../assets/images/app.svg'
+import image2 from '../assets/images/app.svg'
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
@@ -13,7 +15,7 @@ const homeProtfolioData = [
         title: 'MultiFactor Authentication',
         skils: ["React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper'],
         description: `Multifactor Authentication App For Authenticating user using totp code.`,
-        cardImage: require('../assets/images/app.svg'),
+        cardImage: image1,
         isPrivate: true
     },
     {
@@ -22,7 +24,7 @@ const homeProtfolioData = [
         skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
         description: `It's shows deltails of my experiences, skills, projects etc..`,
         figma: "",
-        cardImage: require('../assets/images/app.svg'),
+        cardImage: image2,
 
     },
 ]

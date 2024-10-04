@@ -14,6 +14,9 @@ const Ractangle = () => {
 
     )
 }
+
+
+
 const mySkills = [
     {
         id: 1,
@@ -91,7 +94,7 @@ const Skills = () => {
             // </Stack>
         )
     }
-    const SkillsCard = ({ title, skills }: { title: string, skills: any[] }) => {
+    const SkillsCard = ({ title, skills }: { title: string, skills: string[] }) => {
         return (
             <div
                 style={{

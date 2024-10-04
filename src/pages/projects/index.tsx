@@ -8,7 +8,30 @@ import Typography from '@/Components/Typography';
 import Image from 'next/image';
 import Buttons from '@/Components/Buttons';
 import { figmaIcon, githubIcon, playIcon, worldIcon } from '@/assets/Icon';
-const protfolioData = [
+
+interface Data {
+    id: number
+    title: string
+    skills: string[]
+    description: string
+    figma?: string
+    isPrivate: boolean
+    liveUrl?: string
+    youtubeUrl?: string
+    cardImage?: any
+    githubUrl?: string
+
+}
+interface Result {
+    title: string
+    data: Data[]
+}
+interface PortfolioData {
+    id: number,
+    results: Result
+}
+
+const portfolioData: PortfolioData[] = [
     {
         id: 2,
         results: {
@@ -17,12 +40,12 @@ const protfolioData = [
                 {
                     id: 8,
                     title: 'Portfolio',
-                    skils: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
+                    skills: ["Redux", "TypeScript", "JavaScript", "React", "CSS", "Bootstrap", "Next JS"],
                     description: `It's shows deltails of my experiences, skills, projects etc..`,
                     figma: "",
                     isPrivate: true,
-                    liveUrl: 'https://friend-shoes-ecommerce.netlify.app/',
-                    youtubeUrl: 'https://youtu.be/h2SX4VHQHlE',
+                    liveUrl: 'https://portfolio-gaud-shwetkamal-kamlesh-kumars-projects.vercel.app/',
+                    youtubeUrl: '',
                 },
 
             ],
@@ -36,13 +59,10 @@ const protfolioData = [
                 {
                     id: 1,
                     title: 'Multi Factor Authentication',
-                    skils: ["React Native", "Redux", "Redux-Saga", "Native Base", "React-Native-Paper", "yup"],
+                    skills: ["React Native", "Redux", "Redux-Saga", "Native Base", "React-Native-Paper", "yup"],
                     description: `Multifactor Authentication App For Authenticating user using totp code.`,
                     cardImage: upcopo2,
-                    liveUrl: '',
-                    youtubeUrl: 'https://www.youtube.com/watch?v=k7098_rTLlA&feature=youtu.be',
-                    figma: "https://www.figma.com/file/xxFZjSHJXT2yrQwS68DCDm/Upcopo?node-id=412%3A712",
-                    githubUrl: '',
+                    
                     isPrivate: true
                 },
 
@@ -52,7 +72,8 @@ const protfolioData = [
     },
 ]
 
-const ProjectPage = ({ data }: { data: any }) => {
+
+const ProjectPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
@@ -98,7 +119,7 @@ const ProjectPage = ({ data }: { data: any }) => {
             </div>
         )
     }
-    const ProjectCard = ({ data }: { data: any }) => {
+    const ProjectCard = ({ data }: { data: Data[] }) => {
         return (
             <div className='d-flex flex-row justify-content-center flex-wrap gap-2'>
                 {
@@ -139,7 +160,7 @@ const ProjectPage = ({ data }: { data: any }) => {
                                     }}
                                 >
                                     {
-                                        item.skils.map((skill: any) => {
+                                        item.skills.map((skill: any) => {
                                             return (
                                                 <li
                                                     key={skill}
@@ -199,45 +220,65 @@ const ProjectPage = ({ data }: { data: any }) => {
                                     <div style={{ fontFamily: 'FiraCode' }} className='d-flex gap-2 flex-wrap'
                                     >
                                         {
-                                            item.liveUrl && <Buttons
-                                                btnTitle="Live "
-                                                component={'a'}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={item.liveUrl}
-                                                startIcon={<Image src={worldIcon} alt="play" height={16} width={16} />}
+                                            item.liveUrl &&
+                                            <a
 
-                                            />
-                                        }
-                                        {
-                                            item.figma && <Buttons
-                                                btnTitle="Figma "
-                                                component={'a'}
+                                                href={item.liveUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                href={item.figma}
-                                                endIcon={<Image src={figmaIcon} alt="play" height={24} width={24} />}
-                                            />
+                                            >
+
+                                                <Buttons
+                                                    btnTitle="Live "
+                                                ><Image src={worldIcon} alt="play" height={16} width={16} /></Buttons>
+                                            </a>
                                         }
                                         {
-                                            item.githubUrl && <Buttons
-                                                btnTitle="Github repo"
-                                                component={'a'}
+                                            item.figma &&
+                                            <a
+                                                href={item.figma}
+                                                target="_blank"
+                                                rel="noopener noreferrer">
+
+                                                <Buttons
+                                                    btnTitle="Figma "
+                                                ><Image src={figmaIcon} alt="play" height={24} width={24} /></Buttons>
+                                            </a>
+                                        }
+                                        {
+                                            item.githubUrl &&
+                                            <a
                                                 href={item.githubUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                startIcon={<Image src={githubIcon} alt="play" height={24} width={24} />}
-                                            />
+                                            >
+
+                                                <Buttons
+                                                    btnTitle="Github repo"
+
+
+                                                >
+                                                    <Image src={githubIcon} alt="play" height={24} width={24} />
+                                                </Buttons>
+                                            </a>
                                         }
                                         {
-                                            item.youtubeUrl && <Buttons
-                                                btnTitle="Demo"
-                                                component={'a'}
+                                            item.youtubeUrl &&
+                                            <a
+
+
                                                 href={item.youtubeUrl}
                                                 target="_blank"
-                                                rel="noopener noreferrer"
-                                                endIcon={<Image src={playIcon} alt="play" height={24} width={24} />}
-                                            />
+                                                rel="noopener noreferrer">
+
+                                                <Buttons
+                                                    btnTitle="Demo"
+
+
+                                                >
+                                                    <Image src={playIcon} alt="play" height={24} width={24} />
+                                                </Buttons>
+                                            </a>
 
                                         }
 
@@ -265,7 +306,7 @@ const ProjectPage = ({ data }: { data: any }) => {
                     All of My Projects
                 </Typography>
                 {
-                    protfolioData.map((item, index) => {
+                    portfolioData.map((item, index) => {
                         return (
                             <div className='d-flex flex-column gap-3'
                                 key={Math.random()}

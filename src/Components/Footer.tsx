@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FigmaIcon, GithubIcon, LinkDinIcon, LogoImg, TelegramIcon, TwitterIcon } from '@/assets/svg'
 import logo from "../assets/images/logo.png";
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
 import Typography from './Typography';
+import Link from 'next/link';
 
 
 const footerData = {
@@ -46,7 +47,7 @@ const footerData = {
 const Footer = () => {
     const { mode, textDark, textLight, textGray, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
-    const { socials, socialsTitle, discription, link, copyRight, logo, logoTitle,
+    const { socials, socialsTitle, discription, link, copyRight, logoTitle,
         refText } = footerData;
     return (
         <div className='px-3 w-100' style={{ backgroundColor: isDark ? mainBgColorDark : mainBgColorLight, }}>
@@ -67,7 +68,7 @@ const Footer = () => {
                             <div className='d-flex justify-content-center align-items-center flex-row gap-5'
 
                             >
-                                <a className='d-flex flex-row   gap-1'
+                                <Link className='d-flex flex-row   gap-1'
 
                                     href="/"
                                     style={{
@@ -82,7 +83,7 @@ const Footer = () => {
                                     <Typography>
                                         {logoTitle}
                                     </Typography>
-                                </a>
+                                </Link>
                                 <a style={{ textAlign: 'start', textDecoration: 'none', fontSize: "18px", fontWeight: 400, color: isDark ? textLight : textGray }}
 
                                     href="/"
@@ -111,7 +112,7 @@ const Footer = () => {
                             <div className='d-flex  py-1 gap-1'
                             >
                                 {
-                                    socials.map((item, index) => {
+                                    socials.map((item) => {
                                         return (
                                             <a className="sidebar" key={item.id} href={item.link} rel="noreferrer" target="_blank">{item.img}</a>
                                         )

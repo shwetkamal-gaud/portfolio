@@ -1,6 +1,5 @@
 
 import React, { ReactNode } from 'react'
-import NavBar from './NavBar'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/reducers'
 import Footer from './Footer'
@@ -11,7 +10,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-    const { mode, color, mainBgColorDark, mainBgColorLight, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+    const { mode, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
     return (
         <>

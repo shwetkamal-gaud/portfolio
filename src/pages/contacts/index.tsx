@@ -110,9 +110,9 @@ const ContactsPage = () => {
                                     {socailAccountsTitle}:
                                 </Typography>
                                 {
-                                    socailAccounts.map((item) => {
+                                    socailAccounts.map((item, index) => {
                                         return (
-                                            <a className='d-flex flex-row align-items-center text-decoration-none'
+                                            <a key={index} className='d-flex flex-row align-items-center text-decoration-none'
 
                                                 {...(item?.isEmail ? { href: `mailto:` + item?.link }
 
@@ -123,7 +123,7 @@ const ContactsPage = () => {
                                                     fontWeight={400}
                                                     fontSize={16}
                                                     color={isDark ? textLight : textGray}
-                                                    component="span"
+                        
                                                 >
                                                     {item?.text}
                                                 </Typography>

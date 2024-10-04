@@ -101,7 +101,7 @@ const initialState: InitialState = {
 
 }
 
-const themeReducer = (state = initialState, action: any) => {
+const themeReducer = (state = initialState, action: {type:string, payload:InitialState}) => {
     switch (action?.type) {
         case CHANGE_THEME:
             return {

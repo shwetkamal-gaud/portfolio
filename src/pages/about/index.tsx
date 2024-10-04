@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import photo from "../../assets/images/Pi7_Passport_Photo.jpeg";
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
@@ -100,10 +100,10 @@ successful projects on time and within budget.`
 
 
 
-const about = () => {
+const AboutPage = () => {
     const { aboutData, mySkills, funFact, resume, image } = aboutMeData;
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const [isHovered, setIsHovered] = useState(false)
+
     const isDark = Boolean(mode === 'dark')
     const router = useRouter()
     const Header = () => {
@@ -176,7 +176,7 @@ const about = () => {
             // </Stack>
         )
     }
-    const SkillsCard = ({ title, skills }: { title: string, skills: any[] }) => {
+    const SkillsCard = ({ title, skills }: { title: string, skills: string[] }) => {
         return (
             <div
                 style={{
@@ -277,7 +277,7 @@ const about = () => {
             <div className='d-flex flex-row flex-wrap gap-2'
             >
                 {
-                    funFact.map((fact, index) => {
+                    funFact.map((fact) => {
                         return (
                             <div
                                 style={{
@@ -320,7 +320,7 @@ const about = () => {
                         <div className='item col-xs-12 col-md-8'>
                             <div className='d-flex flex-column  py-5'>
                                 {
-                                    aboutData.map((data, index) => (
+                                    aboutData.map((data) => (
                                         <Typography
                                             color={isDark ? textLight : textGray}
                                             fontWeight={400}
@@ -371,4 +371,4 @@ const about = () => {
     )
 }
 
-export default about
+export default AboutPage

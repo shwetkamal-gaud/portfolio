@@ -1,15 +1,14 @@
 import { changeThemeWithColor } from '@/redux/actions/action';
 import { RootState } from '@/redux/reducers';
-import React, { ReactNode, useEffect, useReducer, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const DropDown = ({ children }: { children: ReactNode }) => {
     const [listOpen, setListOpen] = useState<boolean>()
     const listRef = useRef<HTMLDivElement>(null);
-    const { mode, color } = useSelector((state: RootState) => state.theme)
+    const {  color } = useSelector((state: RootState) => state.theme)
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const isDark = Boolean(mode === 'dark')
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (listRef.current && !listRef.current.contains(event.target as Node)) {

@@ -1,18 +1,17 @@
 
 import { RootState } from "@/redux/reducers"
-import React, { useEffect, useState } from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 
 interface ButtonsInterface {
     btnTitle?: React.ReactNode
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-
-    [key: string]: any
+    children?: ReactNode
 
 }
 
-const Buttons = ({ btnTitle, onClick, ...rest }: ButtonsInterface) => {
+const Buttons = ({ btnTitle, onClick, children }: ButtonsInterface) => {
     const [coords, setCoords] = useState({ x: -1, y: -1 });
     const [isRippling, setIsRippling] = useState(false);
     useEffect(() => {
@@ -26,7 +25,6 @@ const Buttons = ({ btnTitle, onClick, ...rest }: ButtonsInterface) => {
     }, [isRippling]);
     const { mode, textDark, textWhite } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
-    const [isHovered, setHovered] = useState<boolean>(false)
     return (
         <button style={{
             '--main-color': isDark ? "#C770DB1A" : "#ABB2BF1A",
@@ -37,10 +35,11 @@ const Buttons = ({ btnTitle, onClick, ...rest }: ButtonsInterface) => {
             const btn = e.target as HTMLButtonElement
             const rect = btn.getBoundingClientRect();
             setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-            onClick && onClick(e);
+            if (onClick) {
+                onClick(e);
+            }
+
         }}
-            onMouseEnter={() => setHovered(true)}
-            onMouseDown={() => setHovered(false)}
         >
             {isRippling ? (
                 <span
@@ -54,6 +53,7 @@ const Buttons = ({ btnTitle, onClick, ...rest }: ButtonsInterface) => {
                 ''
             )}
             {btnTitle}
+            {children}
         </button>
     )
 }
