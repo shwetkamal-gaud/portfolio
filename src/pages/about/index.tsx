@@ -40,17 +40,17 @@ successful projects on time and within budget.`
         {
             id: 1,
             title: "Programming Languages",
-            items: ["JavaScript,TypeScript,", "Python,", "Java,"]
+            items: ["JavaScript, ", "TypeScript, ", "Python, ", "Java, ", "C/C++ "]
         },
         {
             id: 2,
             title: 'Libraries & Frameworks',
-            items: ["React ,", " React Native, ", "NextJs, ", "Redux, Redux-Saga"]
+            items: ["React, ", " React Native, ", "NextJs, ", "Redux , Redux-Saga "]
         },
         {
             id: 3,
             title: 'Frontend CSS Library',
-            items: ["HTML/CSS,", "SASS, ", " Material-UI, ", "Tailwind CSS,", "Bootstrap, ", "Native Base, "]
+            items: ["HTML/CSS, ", "SASS, ", "SCSS, ", " Material-UI, ", "Tailwind CSS, ", "Bootstrap, ", "Native Base, "]
         },
         {
             id: 4,
@@ -65,22 +65,22 @@ successful projects on time and within budget.`
         {
             id: 7,
             title: 'Areas of Interest',
-            items: ["Web Design and Development, ", " Mobile App Development", "Vulnearability Assement & Penetration Testing"]
+            items: ["Web Design and Development, ", " Mobile App Development, ", "Vulnearability Assement & Penetration Testing"]
         },
         {
             id: 8,
             title: 'Soft Skills',
-            items: ["Problem Solving, Self-learning, ", "Adaptability"]
+            items: ["Problem Solving, Self-learning, ", "Adaptability "]
         },
         {
             id: 9,
             title: 'Other Skills',
-            items: ["Adobe Illustrator, ", "Adobe Photoshop"]
+            items: ["Adobe Illustrator, ", "Adobe Photoshop "]
         },
         {
             id: 6,
             title: 'Communication Languages',
-            items: ["Hindi,", " English,", " Gujarati"]
+            items: ["Hindi, ", " English, ", " Gujarati "]
         }
     ],
     funFact: [
