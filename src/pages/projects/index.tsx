@@ -56,9 +56,9 @@ const protfolioData = [
     },
 ]
 const ProjectsPage = ({ data }: { data: any }) => {
-    const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
-    const router = useRouter()
+        const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+        const isDark = Boolean(mode === 'dark')
+        const router = useRouter()
     const Header = ({ title }: { title: any }) => {
         return (
             <Stack

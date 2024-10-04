@@ -8,15 +8,31 @@ import Link from "next/link";
 import { memo } from "react";
 import Image from "next/image";
 import ContactForm from "@/Components/ContactForm";
-import { telegramIcon } from "@/assets/Icon";
+import { linkedinIcon, telegramIcon } from "@/assets/Icon";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/reducers";
 
 const contactData = {
-    text: `I’m interested in freelance opportunities. However, if you have other requests or questions, don’t hesitate to contact me.`,
+    text: `I’m interested in freelance, remote, on-site opportunities. However, if you have other requests or questions, don’t hesitate to contact me.`,
     socailAccounts: [
         {
             id: 1,
+            name: 'Linkein',
+            icon: linkedinIcon,
+            link: 'https://linkedin.com/in/shwetkamal-gaud',
+            text: 'Shwetkamal Gaud',
+            isEmail: false
+        },
+        {
+            id: 2,
+            name: 'Email',
+            icon: emailIcon,
+            link: 'gaudshwetkamal0438@gmail.com',
+            text: 'gaudshwetkamal0438@gmail.com',
+            isEmail: true
+        },
+        {
+            id: 3,
             name: 'Telegram',
             icon: telegramIcon,
             link: 'https://t.me/mrskg0438',
@@ -24,18 +40,11 @@ const contactData = {
             isEmail: false
 
         },
-        {
-            id: 2,
-            name: 'Email',
-            icon: emailIcon,
-            link: 'abdulkadirshohan@gmail.com',
-            text: 'abdulkadirshohan@gmail.com',
-            isEmail: true
-        },
+
+
     ],
     socailAccountsTitle: 'Message me here'
 }
-
 const ContactMe = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')

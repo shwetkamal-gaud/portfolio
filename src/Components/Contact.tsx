@@ -1,12 +1,10 @@
 
 import { Box, Grid, Stack } from '@mui/material';
-import discordIcon from '../assets/Icon/discord.svg'
 import emailIcon from '../assets/Icon/email.svg'
 import ContainedTypography from './ContainedTypography';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
 import Image from 'next/image';
-import { Telegram } from '@mui/icons-material';
 import { telegramIcon } from '@/assets/Icon';
 const homeContactData = {
     text: `I’m interested in freelance opportunities. However, if you have other requests or questions, don’t hesitate to contact me.`,

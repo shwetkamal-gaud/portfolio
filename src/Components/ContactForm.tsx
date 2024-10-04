@@ -1,16 +1,17 @@
-import { Button, Grid, Input, Stack } from "@mui/material"
+import { Button, Grid, Stack } from "@mui/material"
 import { useState } from "react"
+import Input from "./Input"
 
-const ContactForm = () =>{
-    const[data,setData] = useState({name:'',email:'', subject:'', message:''})
+const ContactForm = () => {
+    const [data, setData] = useState({ name: '', email: '', subject: '', message: '' })
     const config = {
-        SecureToken:'',
-        To:'gaudshwetkamal0438@gmail.com',
+        SecureToken: '',
+        To: 'gaudshwetkamal0438@gmail.com',
         From: data.email,
         Subject: data.subject,
         Body: data.message
     }
-    const handleSubmit = (e:any) =>{
+    const handleSubmit = (e: any) => {
         e.prevntDefault()
         // window?.Email.send(config).then(
         //     (message:any) => alert(message)
@@ -32,7 +33,7 @@ const ContactForm = () =>{
                             //label="Name"
                             name="name"
                             value={data.name}
-                            onChange={(e) => setData({ ...data, name: e.target.value })}
+                            onChange={(e: any) => setData({ ...data, name: e.target.value })}
                             fullWidth
                             required
                         />
@@ -42,7 +43,7 @@ const ContactForm = () =>{
                             //label="Subject"
                             name="subject"
                             value={data.subject}
-                            onChange={(e) => setData({ ...data, subject: e.target.value })}
+                            onChange={(e: any) => setData({ ...data, subject: e.target.value })}
                             fullWidth
                             required
                         />
@@ -53,7 +54,7 @@ const ContactForm = () =>{
                             name="email"
                             value={data.email}
                             type="email"
-                            onChange={(e) => setData({ ...data, email: e.target.value })}
+                            onChange={(e: any) => setData({ ...data, email: e.target.value })}
                             fullWidth
                             required
                         />
@@ -63,7 +64,7 @@ const ContactForm = () =>{
                             //label="Message"
                             name="message"
                             value={data.message}
-                            onChange={(e) => setData({ ...data, message: e.target.value })}
+                            onChange={(e: any) => setData({ ...data, message: e.target.value })}
                             fullWidth
                             multiline
                             rows={4}

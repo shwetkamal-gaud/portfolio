@@ -1,15 +1,15 @@
 import { TextField } from "@mui/material"
 
 interface InputInterface {
-    value: any
-    name: any
-    label: any
-    [key:string]: any
+	value: any
+	name: any
+	label?: any
+	[key: string]: any
 }
 
-const Input = ({value, name, label, ...rest}: InputInterface) => {
-    return(
-        <TextField
+const Input = ({ value, name, label, ...rest }: InputInterface) => {
+	return (
+		<TextField
 			name={name}
 			label={label}
 			value={value}
@@ -48,5 +48,7 @@ const Input = ({value, name, label, ...rest}: InputInterface) => {
 
 			{...rest}
 		/>
-    )
+	)
 }
+
+export default Input

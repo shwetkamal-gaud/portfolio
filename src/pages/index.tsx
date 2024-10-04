@@ -19,6 +19,35 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/reducers";
 import Contact from "@/Components/Contact";
 
+// def longestSubarray( n, arr, k ) -> int:
+//         # code here
+//         maxi = 0
+//         i = 0
+//         j = 1
+//         if  n == 1 and sum(arr[i:j]) % k == 0:
+//             return 1
+        
+//         while j < n:
+//             if arr[j-1]<=arr[j]:
+//                 j+=1
+//             else:
+//                 i = j
+//                 j += 1
+            
+//             if sum(arr[i:j]) % k == 0: 
+//                 print(sum(arr[i:j])//k)
+//                 maxi = max(maxi, len(arr[i:j])-1)
+                
+//         if k == 1 and maxi == 0:
+//             return 1
+            
+//         return maxi
+    
+    
+// n = 2
+// k = 9
+// arr = [6,7]
+// print(longestSubarray(n,arr,k))
 
 const heroTopSectionData = {
   title: {

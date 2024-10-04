@@ -97,7 +97,7 @@ successful projects on time and within budget.`
         "Miss my childhood days",
 
     ],
-    resume: '/Resume.pdf',
+    resume: '/Shwetkamal_Gaud.pdf',
     image: photo,
 }
 

@@ -18,8 +18,6 @@ import Sidebar from './Sidebar';
 import { useRouter } from 'next/router';
 import { RootState } from '@/redux/reducers';
 import { changeThemeWithColor } from '@/redux/actions/themeActions';
-import Footer from './Footer';
-import { Outlet } from 'react-router-dom';
 const drawerWidth = 50;
 const navbarData = {
     routes: [
@@ -85,9 +83,9 @@ function NavBar(props: any) {
         setMobileOpen(!mobileOpen);
     };
     const drawer = (
-        <Box
-            //  onClick={handleDrawerToggle}
-            sx={{
+        <nav
+            onClick={handleDrawerToggle}
+            style={{
                 textAlign: 'center',
                 backgroundColor: isDark ? mainBgColorDark : mainBgColorLight,
             }}>
@@ -104,7 +102,7 @@ function NavBar(props: any) {
                 <LogoImg
                     iconColor={isDark ? textLight : textDark}
                 />
-                <ContainedTypography>
+                <ContainedTypography >
                     {logoTitle}
                 </ContainedTypography>
                 <IconButton
@@ -145,6 +143,7 @@ function NavBar(props: any) {
                                 fontFamily: "FiraCode",
                                 fontWeight: 600,
                                 padding: "0.5rem 1rem",
+
                             }
                             : {
                                 color: isDark ? textLight : textDark,
@@ -178,7 +177,7 @@ function NavBar(props: any) {
                     </Link>
                 ))}
             </Stack>
-        </Box>
+        </nav>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;

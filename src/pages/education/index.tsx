@@ -28,9 +28,9 @@ const educationData = [
 ]
 
 const Education = () => {
-    const router = useRouter()
-    const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+        const router = useRouter()
+        const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
+        const isDark = Boolean(mode === 'dark')
     const Header = () => {
         return (
             <Stack spacing={2}>
