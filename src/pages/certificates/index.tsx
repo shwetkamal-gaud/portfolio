@@ -119,7 +119,7 @@ const CertificatesPage = () => {
                                 >
                                     Topics i learned from this course
                                 </Typography>
-                                <div className='d-flex flex-rwo flex-wrap gap-2 py-2 px-2'
+                                <div className='d-flex flex-row flex-wrap gap-2 py-2 px-2'
                                 >
                                     {
                                         item?.tag?.map((items, index) => (
@@ -131,14 +131,14 @@ const CertificatesPage = () => {
                                                 justifyContent: 'center',
                                                 border: '1px solid #C470DB',
                                                 borderRadius: '15px'
-                                            }} className={`text-${getColor(index)}`}>{items}</span>
+                                            }} className={`text-${getColor(index)}, col-auto`}>{items}</span>
                                         ))
                                     }
                                 </div>
                                 <Typography
                                     text={'Course instructor feedback:'}
                                     fontSize={16}
-                                    fontWeight={500}
+                                    fontWeight={400}
                                     p={'6px 0px 0px 6px'}
                                 >
                                     {item.feedback}
