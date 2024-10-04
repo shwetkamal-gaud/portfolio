@@ -57,7 +57,7 @@ const ContactsPage = () => {
                             fontSize={32}
                         >
                             <span style={{ color: isDark ? textWhite : textDark }}>
-                                education
+                                contact
                             </span>
 
                         </Typography>
