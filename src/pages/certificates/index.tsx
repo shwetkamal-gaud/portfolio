@@ -11,6 +11,8 @@ import Image from 'next/image';
 const data = [
     {
         title: 'Software developer Intern',
+        text: 'Internship Mentor Feedback',
+        topicTitle: 'Topics i learned from this Internship',
         platform: 'Medkart Pharmacy PVT LTD',
         tag: 'REACT, REDUX,  REDUX - SUGA, NEXT JS, BOOTSTRAP, TYPESCRIPT, JAVASCRIPT, TAILWIND CSS, HTML, SCSS',
         feedback: 'Shwetkamal dveloped many modules and performed exceptionally well. He completed all the modules very seriously and completed all the assignments with excellent results. He is the most grew intern.',
@@ -22,9 +24,11 @@ const data = [
     },
     {
         title: 'Python Skill Assesment',
+        text: 'Skill Assesment Result and Overview',
         platform: 'HackerRank',
+        topicTitle: 'Topics i included in this skill assessment',
         tag: 'Python, Problem Solving, Data Structures, Algorithms, Basics',
-        feedback: 'Shwetkamal Complted all the given Problems based on Data Structure and Algorithms Using Python Programing Language And Scored 100%.',
+        feedback: 'I Complted all the given Problems based on Data Structure and Algorithms Using Python Programing Language And Scored 100%.',
         courseCertificate: python,
         imageTitle1: 'Skill Assessment Certificate',
         link: 'https://www.hackerrank.com/certificates/c0b6b1af6e7e'
@@ -72,22 +76,6 @@ const CertificatesPage = () => {
             </div>
         )
     }
-    const getColor = (index: number) => {
-        switch (index) {
-            case 0:
-                return 'primary';
-            case 1:
-                return 'secondary';
-            case 2:
-                return 'success';
-            case 3:
-                return 'warning';
-            case 4:
-                return 'error';
-            default:
-                return 'primary';
-        }
-    }
 
     return (
         <div className='container' >
@@ -117,32 +105,34 @@ const CertificatesPage = () => {
                                     fontWeight={400}
                                     p={'6px 0px 0px 6px'}
                                 >
-                                    Topics i learned from this course
+                                    {item.topicTitle}
                                 </Typography>
-                                <div className='d-flex flex-row flex-wrap gap-2 py-2 px-2'
-                                >
-
-                                    <span
-                                        style={{
-                                            display: 'flex',
-                                            flex: 'wrap',
-                                            flexGrow: 1,
-                                            flexShrink: 1,
-                                            flexBasis: 0,
-                                            fontFamily: "FiraCode",
-                                            fontSize: '12px',
-                                            padding: '2px 6px 2px 6px',
-                                            fontWeight: '400',
-                                            justifyContent: 'center',
-                                            border: '1px solid #C470DB',
-                                            borderRadius: '15px'
-                                        }}
-                                        key={index} className={`text-${getColor(index)}, col-auto`}>{item.tag}</span>
 
 
-                                </div>
+                                <span
+                                    style={{
+                                        width: 'fit-content',
+                                        marginLeft: '4px',
+                                        display: 'flex',
+                                        flex: 'wrap',
+                                        flexGrow: 1,
+                                        flexShrink: 1,
+                                        flexBasis: 0,
+                                        fontFamily: "FiraCode",
+                                        fontSize: '12px',
+                                        padding: '2px 6px 2px 6px',
+                                        fontWeight: '400',
+                                        justifyContent: 'start',
+                                        border: '1px solid #C470DB',
+                                        borderRadius: '15px',
+                                        color: isDark ? textLight : textGray
+                                    }}
+                                >{item.tag}</span>
+
+
+
                                 <Typography
-                                    text={'Course instructor feedback:'}
+                                    text={`${item.text}:`}
                                     fontSize={16}
                                     fontWeight={500}
                                     p={'6px 0px 0px 6px'}

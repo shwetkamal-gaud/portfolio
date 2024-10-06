@@ -200,10 +200,11 @@ a.secondary {
 .blockquote h1::after {
   content: '';
   position: absolute;
-  width: 80;
+  width: 190px;
   border: 6px solid;
+  border: 2px solid var(--main-content);
   bottom: -3px;
-  left: 50;
+  left: 65px;
   z-index: 2;
 }
 
@@ -215,7 +216,7 @@ a.secondary {
   width: 60px;
   height: 60px;
   bottom: -60px;
-  left: 50px;
+  left: 57px;
   border-bottom: none;
   border-left: none;
   z-index: 3;
@@ -231,11 +232,11 @@ a.secondary {
 
 }
 
-@media (max-width: 850px) and (min-width: 600px) {
+/* @media (max-width: 850px) and (min-width: 600px) {
   .box {
     width: 40px;
   }
-}
+} */
 
 /* Blockquote subheader */
 .blockquote h4 {

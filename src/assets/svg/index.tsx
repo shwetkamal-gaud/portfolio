@@ -9,6 +9,8 @@ import LogoImg from "./LogoImg";
 import SunIcon from "./SunIcon";
 import TelegramIcon from "./TelegramIcon";
 import TwitterIcon from "./TwitterIcon";
+import HackerRank from "./HackerRank";
+import LeetCode from "./LeetCode";
 
 export {
     ArrowBackIcon, SVGComponent,
@@ -20,6 +22,8 @@ export {
     LogoImg,
     SunIcon,
     TelegramIcon,
-    TwitterIcon
+    TwitterIcon,
+    HackerRank,
+    LeetCode
 };
 

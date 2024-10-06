@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Buttons from './Buttons'
 // import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 // import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import logoOutline from "../assets/images/logoOutline.svg";
+
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/reducers'
 
@@ -28,7 +30,7 @@ const homeAboutData = {
 const About = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
     const isDark = Boolean(mode === 'dark')
-    const { aboutData, resume, image } = homeAboutData;
+    const { aboutData, resume } = homeAboutData;
     const Header = () => {
         return (
 
@@ -101,10 +103,12 @@ const About = () => {
                 <div className='item col-xs-12 col-md-6'>
                     <div className='d-flex justify-content-end'>
                         <div style={{ width: '22rem', height: '26rem', aspectRatio: '1/1', borderRadius: '2px', overflow: 'hidden' }}>
-                            <Image className='img-fluid border-radius-5' style={{ width: '22rem', height: '26rem' }}
-                                alt='about-image'
-                                src={image}
-
+                            <Image src={logoOutline} alt="" style={{
+                                fontSize: "32px",
+                                width: '40%',
+                                height: '40%',
+                                aspectRatio: "1/1",
+                            }}
                             />
                         </div>
                     </div>

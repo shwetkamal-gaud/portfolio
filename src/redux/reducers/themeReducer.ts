@@ -30,7 +30,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    mode: getInitialTheme() ? "dark" : "light",
+    mode: getInitialTheme() ? "light" : "dark",
     mainBgColorDark: '#282C33',
     mainBgColorLight: '#e3f2fd',
     textDark: '#000000',
@@ -72,8 +72,8 @@ const initialState: InitialState = {
             id: 4,
             name: "light purple",
             mode: "light",
-            mainBgColorLight: "#b39ddb",
-            bgColor: "#b39ddb",
+            mainBgColorLight: "#3A6D8C",
+            bgColor: "#3A6D8C",
             textLight: "#000000",
             textWhite: "#fff"
         },
@@ -90,8 +90,8 @@ const initialState: InitialState = {
             id: 6,
             name: "dark blue",
             mode: "dark",
-            mainBgColorDark: "#263238",
-            bgColor: "#263238",
+            mainBgColorDark: "#263245",
+            bgColor: "#263245",
             textDark: "#000000",
             textGray: "#212121",
             textLight: "#ABB2BF",
@@ -101,7 +101,7 @@ const initialState: InitialState = {
 
 }
 
-const themeReducer = (state = initialState, action: {type:string, payload:InitialState}) => {
+const themeReducer = (state = initialState, action: { type: string, payload: InitialState }) => {
     switch (action?.type) {
         case CHANGE_THEME:
             return {

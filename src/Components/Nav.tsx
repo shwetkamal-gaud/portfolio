@@ -2,31 +2,47 @@ import { RootState } from '@/redux/reducers'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { LogoImg, SunIcon } from '@/assets/svg'
+import { LinkDinIcon, LogoImg, SunIcon } from '@/assets/svg'
 import Typography from './Typography'
 import Link from 'next/link'
 import DropDown from './DropDown'
-import { EmailIcon, GithubIcon, TelegramIcon } from "../assets/svg";
+import { EmailIcon, GithubIcon } from "../assets/svg";
+import HackerRank from '@/assets/svg/HackerRank'
+import LeetCode from '@/assets/svg/LeetCode'
 
 const sidebarData = [
-    {
-        name: 'discord',
-        icon: <TelegramIcon />,
-        link: 'https://t.me/mrskg0438',
-        id: 1
-    },
+
     {
         name: 'github',
         icon: <GithubIcon />,
         link: "https://github.com/mrskg0438",
-        id: 2
+        id: 1
     },
     {
         name: 'email',
         icon: <EmailIcon />,
         link: "mailto: gaudshwetkamal0438@gmail.com",
+        id: 2
+    },
+    {
+        name: 'linkedin',
+        icon: <LinkDinIcon />,
+        link: "https://linkedin.com/in/shwetkamalgaud",
         id: 3
-    }
+    },
+    {
+        name: 'hackerrank',
+        icon: <HackerRank />,
+        link: "https://www.hackerrank.com/profile/Shwetkamal",
+        id: 4
+    },
+    {
+        name: 'leetcode',
+        icon: <LeetCode />,
+        link: "https://leetcode.com/u/mr_shwetkamal/",
+        id: 5
+    },
+
 ]
 
 
@@ -35,7 +51,7 @@ const SideBar = () => {
         <div className="d-flex align-items-center justify-content-center  w-100 pt-4 ">
             <div className="d-flex flex-column  align-items-center gap-2" style={{ width: '35%' }}>
                 <div className="d-none d-lg-block" style={{ display: "block", width: '2px', height: 240, backgroundColor: '#ABB2BF' }}></div>
-                <div className="d-flex flex-lg-column flex-row">
+                <div className="d-flex flex-lg-column flex-row gap-2">
                     {
                         sidebarData.map((item) => (
                             <a className="sidebar" key={item.id} href={item.link} rel="noreferrer" target="_blank">{item.icon}</a>
@@ -100,7 +116,6 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
     const [isRippling, setIsRippling] = useState(false);
     const listRef = useRef<HTMLDivElement>(null)
     const offcanvasRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
 
@@ -144,7 +159,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
     return (
         <>
 
-            < nav className="navbar navbar-expand-lg fixed-top" style={{
+            < nav className={isDark ? 'navbar navbar-dark navbar-expand-lg fixed-top' : `navbar navbar-expand-lg fixed-top navbar-light`} style={{
 
                 backgroundColor: isDark ? mainBgColorDark : mainBgColorLight,
             }}>
@@ -169,7 +184,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                         <div className="offcanvas-header">
                             <h5 className="offcanvas-title d-flex justify-content-center align-items-center gap-1 " id="offcanvasNavbarLabel">
                                 <LogoImg iconColor={isDark ? textLight : textDark} /><Typography>{logoTitle}</Typography></h5>
-                            <button type="button" className="btn-close border-0 shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <button type="button" style={{ '--main-op': isDark ? 0.9 : 5 } as React.CSSProperties} className="btn-close border-0 shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
                         </div>
                         <div className="offcanvas-body d-flex flex-column justify-content-between justify-content-lg-end">

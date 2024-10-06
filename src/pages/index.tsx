@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import hero from "../assets/images/hero.png";
+import hero from "../assets/images/20241005_125644.png";
 import { RootState } from "@/redux/reducers";
 import Projects from "@/Components/Projects";
 import Skills from "@/Components/Skills";
@@ -9,7 +9,6 @@ import Typography from "@/Components/Typography";
 import Link from "next/link";
 import Buttons from "@/Components/Buttons";
 import Image from "next/image";
-import logoOutline from "../assets/images/logoOutline.svg";
 import dotLight from "../assets/images/dot.svg"
 import dotDark from "../assets/images/dotDark.svg";
 import styles from "@/styles/Home.module.css";
@@ -52,12 +51,12 @@ export default function Home() {
     blockquote: { quoteText1, quoteText2, quoteText3, quoteText4, quoteBy },
     image } = heroTopSectionData;
 
-  const { mode, textDark, textLight, textWhite, } = useSelector((state: RootState) => state.theme)
+  const { mode, textDark, textLight, textWhite, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
   const isDark = Boolean(mode === 'dark')
   return (
-    <div className="container d-flex align-items-center w-xxl p-0 ">
+    <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
       <div className="d-flex flex-column w-100 ">
-        <div className="container d-flex flex-row row justify-content-center align-items-center p-0 m-0">
+        <div className="container d-flex flex-row row justify-content-center align-items-center p-0 m-0 ">
           <div className="col-sm-12 col-md-6 ">
             <div className="d-flex flex-column  align-items-start">
               <Typography
@@ -94,7 +93,7 @@ export default function Home() {
               >
                 {subtitle}
               </Typography>
-              <div className="pt-2">
+              <div className="pt-2 pb-3">
                 <Link href={'/contacts'}>
                   <Buttons
                     btnTitle="Contact Me"
@@ -105,32 +104,18 @@ export default function Home() {
             </div>
           </div>
           <div className="col-xs-12 col-md-6 d-flex justify-content-end ">
-            <div className="d-flex flex-column justify-content-end position-relative px-xs-0 px-md-2 px-md-5">
-              <Image src={logoOutline} alt="" style={{
-                fontSize: "32px",
-                width: '40%',
-                height: '40%',
-                position: "absolute",
-                top: '10%',
-                zIndex: 1,
-                aspectRatio: "1/1",
-              }}
-              />
+            <div className="d-flex gap-1 flex-column align-items-center justify-content-xl-end justify-content-center position-relative px-xs-0 px-md-2 px-md-5">
 
-              <div
-                style={{
-                  position: 'relative',
-                  zIndex: 2,
-                  borderBottom: "1px solid #C778DD",
-                  display: "block",
-                  maxWidth: "100%",
-                }}
-              >
-                <Image className="img-fluid"
-                  alt={"hero_img"}
-                  src={image}
-                  style={{ width: '103%', height: '98%' }}
-                />
+              <div className="box">
+                <div className="content">
+
+                  <Image className="img-fluid"
+                    alt={"hero_img"}
+                    src={image}
+                    style={{ width: '100%', height: '160%', zIndex: 3 }}
+                  />
+                  <h2>Shwetkamal Gaud</h2>
+                </div>
               </div>
 
               <div
@@ -143,8 +128,8 @@ export default function Home() {
                   justifyContent: "center",
                   alignItems: "center",
                   position: "relative",
-                  top: "3px",
                   zIndex: 3,
+                  top: '2px',
                   gap: "8px",
                   fontWeight: 500,
                 }}
@@ -169,13 +154,13 @@ export default function Home() {
                   {urlText}
                 </a>
               </div>
-              <Image src={isDark ? dotLight : dotDark} alt="" className="dot-image" />
+              <Image src={isDark ? dotLight : dotDark} alt="" className=" img-fluid dot-image align-self-start" />
             </div>
           </div>
         </div>
         <div className={styles.blockquoteWrapper}>
           <div className={styles.blockquote}>
-            <h1>
+            <h1 style={{ '--main-content': isDark ? mainBgColorDark : mainBgColorLight } as React.CSSProperties}>
               {quoteText1}  <span
                 style={{ color: isDark ? textWhite : textDark }}
               >{quoteText2}</span> {quoteText3} <span
