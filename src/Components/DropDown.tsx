@@ -33,7 +33,7 @@ const DropDown = ({ children }: { children: ReactNode }) => {
             <div className="dd-header" style={{ cursor: 'pointer' }} onClick={() => toggleList()}>
                 {children}
             </div>
-            {listOpen && <ul className="dd-list  p-3 justify-content-center  gap-3 card shadow rounded " style={{ width: '10rem', listStyleType: 'none', position: 'absolute', border: 0, }}>
+            {listOpen && <ul className="dd-list  p-3 justify-content-center  gap-3 card shadow rounded " style={{ width: '10.4rem', listStyleType: 'none', position: 'absolute', border: 0, }}>
                 {color.map((item: Color) => (
                     <li onClick={() => {
                         dispatch(changeThemeWithColor(item))

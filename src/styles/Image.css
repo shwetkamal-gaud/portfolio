@@ -44,11 +44,12 @@
 
 .box {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background-color: #F6E7D8;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 2rem 4rem rgba(var(--box-shadow), .25);
 
     &::before {
         content: '';
@@ -62,7 +63,7 @@
     &::after {
         content: "";
         position: absolute;
-        background-color: #7FC7D9;
+        background-color: #C778DD;
         inset: 10px;
         border-radius: 50%;
         z-index: 1;
@@ -150,3 +151,19 @@
         transform: rotate(360deg)
     }
 } */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+    gap: 5vmax;
+    width: min(80ch, 100%);
+    margin-inline: auto;
+
+    img {
+        mask: url(../assets/images/spash.png) no-repeat center;
+        max-width: fit-content;
+        display: block;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}

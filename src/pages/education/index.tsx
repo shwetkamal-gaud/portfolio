@@ -130,7 +130,7 @@ const EducationPage = () => {
                     >{school}</li>
 
                 </ul>
-                <Typography p={'0px 10px 5px 10px'} fontSize={14} fontWeight={500} color={isDark ? textLight : textGray}>{courseWork}</Typography>
+                <Typography text={`Relevent course work: `} p={'0px 10px 5px 10px'} fontSize={14} fontWeight={500} color={isDark ? textLight : textGray}>{courseWork}</Typography>
 
             </div>
         )

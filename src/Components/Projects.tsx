@@ -1,7 +1,8 @@
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import image1 from '../assets/images/app.svg'
+import app from '../assets/images/app.svg'
+import portfolio from '../assets/images/portfolio.png'
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
@@ -12,12 +13,22 @@ const homeProtfolioData = [
     {
         id: 1,
         title: 'MultiFactor Authentication',
-        skils: ["React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper'],
+        skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper',],
         description: `Multifactor Authentication App For Authenticating user using totp code.`,
-        cardImage: image1,
-        isPrivate: true
+        cardImage: app,
+        isPrivate: true,
+
     },
-    
+    {
+        id: 2,
+        title: 'Portfolio',
+        skills: ['TypeScript', "React Js", "Next Js", "Redux", "Redux", "Bootstrap"],
+        description: `My portfolio website, you're probably looking at right now.`,
+        cardImage: portfolio,
+
+
+    },
+
 ]
 
 
@@ -27,12 +38,12 @@ const Projects = () => {
     const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {
         return (
-            <div className='d-flex flex-row justify-content-center flex-wrap gap-2'
+            <div className='d-flex flex-row justify-content-center flex-wrap gap-3'
             >
                 {
                     homeProtfolioData.map((item) => {
                         return (
-                            <div key={item.id} className='d-flex flex-column '
+                            <div key={item.id} className='d-flex flex-column  '
                                 style={{
                                     border: '1px solid #ABB2BF',
                                 }}
@@ -40,7 +51,7 @@ const Projects = () => {
                                 <div
 
                                     style={{
-                                        aspectRatio: '16/9',
+                                        aspectRatio: '16/7',
                                         borderBottom: '1px solid #ABB2BF',
                                         display: 'flex',
                                         width: '100%',
@@ -50,12 +61,15 @@ const Projects = () => {
 
                                     }}
                                 >
-                                    <Image className='img-fluid'
-                                        style={{ alignSelf: 'center', width: '22rem', height: '20rem', padding: 2 }}
+
+                                    <Image className='img-fluid rounded'
+                                        style={{ width: '19rem', height: '15rem', padding: 2 }}
                                         alt={item.title}
                                         src={item.cardImage}
 
                                     />
+
+
                                 </div>
                                 <ul
 
@@ -70,7 +84,7 @@ const Projects = () => {
                                     }}
                                 >
                                     {
-                                        item.skils.map((skill) => {
+                                        item.skills.map((skill) => {
                                             return (
                                                 <li
                                                     key={skill}

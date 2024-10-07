@@ -115,7 +115,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
     const [coords, setCoords] = useState({ x: -1, y: -1 });
     const [isRippling, setIsRippling] = useState(false);
     const listRef = useRef<HTMLDivElement>(null)
-    const offcanvasRef = useRef<HTMLDivElement>(null);
+    const offcanvasRef = useRef<HTMLAnchorElement>(null);
     useEffect(() => {
         if (typeof window !== 'undefined') {
 
@@ -174,7 +174,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                     <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div ref={offcanvasRef} className="sidenav offcanvas offcanvas-start" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+                    <div className="sidenav offcanvas offcanvas-start" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
                         style={{
                             '--main-color': isDark ? mainBgColorDark : mainBgColorLight,
 
@@ -218,6 +218,7 @@ const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
                                 </DropDown>
                                 {routes.map((item) => (
                                     <Link
+
                                         href={item.path}
                                         key={item.id}
                                         style={{

@@ -1,11 +1,12 @@
 
 import React from 'react'
-import upcopo2 from '../../assets/images/app.svg';
+import app from '../../assets/images/app.svg'
+import portfolio from '../../assets/images/portfolio.png'
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
 import Typography from '@/Components/Typography';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Buttons from '@/Components/Buttons';
 import { figmaIcon, githubIcon, playIcon, worldIcon } from '@/assets/Icon';
 
@@ -13,12 +14,12 @@ interface Data {
     id: number
     title: string
     skills: string[]
-    description: string
+    description: string[]
     figma?: string
     isPrivate: boolean
     liveUrl?: string
     youtubeUrl?: string
-    cardImage?: string
+    cardImage?: StaticImageData | string
     githubUrl?: string
 
 }
@@ -42,9 +43,35 @@ const portfolioData: PortfolioData[] = [
                     id: 1,
                     title: 'Multi Factor Authentication',
                     skills: ["React Native", "Redux", "Redux-Saga", "Native Base", "React-Native-Paper", "yup"],
-                    description: `Multifactor Authentication App For Authenticating user using totp code.`,
-                    cardImage: upcopo2,
+                    description: [`The primary aim of Multifactor Authentication app is to enhance security by requiring users to provide
+                                multiple forms of verification to prove their identity.`,
+                        `By requiring multiple factors, this feature significantly reduce the risk of unauthorized access, even if one
+                                factor is compromised. This makes system or data more secure against cyber attacks`],
+                    cardImage: app,
                     githubUrl: 'https://github.com/mrskg0438/multifactor-authentication',
+                    isPrivate: true
+                },
+
+            ],
+        },
+
+    },
+    {
+        id: 2,
+        results: {
+            title: 'web 2.0',
+            data: [
+                {
+                    id: 1,
+                    title: 'Portfolio',
+                    skills: ['TypeScript', "React Js", "Next Js", "Redux", "Redux", "Bootstrap"],
+                    description: [`This Portfolio website display completed projects, case studies and professional achievements in a
+                                structured way.`,
+                        `This highlight my technical expertise in software development, including proficiency in front - end
+                                frameworks like React, Next Js, Bootstrap.`],
+                    cardImage: portfolio,
+                    liveUrl: 'https://portfolioshwetkamal.vercel.app/',
+                    githubUrl: 'https://github.com/mrskg0438/portfolio',
                     isPrivate: true
                 },
 
@@ -192,19 +219,24 @@ const ProjectPage = () => {
                                         }}>Public</span>
 
                                     </div>
-                                    <Typography
+                                    <ul className='p-3'>
+                                        {item.description.map((items) => (
+                                            <li style={{ fontSize: 14, fontWeight: 400, color: isDark ? textLight : textDark }}>{items}</li>
+                                        ))}
+                                    </ul>
+                                    {/* <Typography
                                         fontSize={14}
                                         fontWeight={400}
                                         color={isDark ? textLight : textDark}
                                         p={'10px 0px 0px 0px'}
                                     >
                                         {item.description}
-                                    </Typography>
+                                    </Typography> */}
                                     <div style={{ fontFamily: 'FiraCode' }} className='d-flex gap-2 flex-wrap'
                                     >
                                         {
                                             item.liveUrl &&
-                                            <a
+                                            <a className=''
 
                                                 href={item.liveUrl}
                                                 target="_blank"
@@ -212,7 +244,7 @@ const ProjectPage = () => {
                                             >
 
                                                 <Buttons
-                                                    btnTitle="Live "
+                                                    btnTitle="Live"
                                                 ><Image src={worldIcon} alt="play" height={16} width={16} /></Buttons>
                                             </a>
                                         }

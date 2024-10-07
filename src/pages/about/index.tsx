@@ -1,5 +1,5 @@
 import React from 'react'
-import photo from "../../assets/images/Pi7_Passport_Photo.jpeg";
+import photo from "../../assets/images/ShwetkamalBg.png"
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
@@ -24,8 +24,8 @@ Referral Program, Gift Voucher & Cash Voucher, Users and user's roles management
 multilevel user permissions segment, etc. I was responsible for developing and maintaining multiple
 web applications that received high praise for their performance and user experience. I have a deep
 understanding of React’s core principles and best practices, and I am proficient in using Redux for
-state management. Additionally, I have experience working with RESTful APIs and integrating
-third-party libraries to enhance functionality`
+state management. Additionally, I have experience working with RESTful APIs, integrating
+third-party libraries to enhance functionality and Next Js which is optimize website performance and simplify developement giving inbuilt features such as SSR, Routing etc.`
         },
         {
             id: 4,
@@ -302,9 +302,9 @@ const AboutPage = () => {
                 <div className='d-flex justify-content-center'>
                     <div className=' container row d-flex flex-row align-items-center  py-4 '>
                         <div className='items col-xs-12 col-md-4'>
-                            <div className='d-flex'>
-                                <div style={{ width: '45rem', height: '30rem', aspectRatio: '1/1', borderRadius: '2px', overflow: 'hidden' }}>
-                                    <Image className='img-fluid' style={{ width: '45rem', height: '30rem' }}
+                            <div className='d-flex '>
+                                <div className='grid' style={{ aspectRatio: '1/1', borderRadius: '2px', overflow: 'hidden' }}>
+                                    <Image className='img-fluid' style={{ width: '100%', height: '100%' }}
                                         alt='about-image'
                                         src={image}
 

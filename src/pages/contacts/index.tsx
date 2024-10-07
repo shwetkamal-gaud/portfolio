@@ -1,4 +1,5 @@
 import { emailIcon, linkedinIcon, telegramIcon } from '@/assets/Icon'
+import ContactForm from '@/Components/ContactForm'
 import Typography from '@/Components/Typography'
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
@@ -47,7 +48,7 @@ const ContactsPage = () => {
     const router = useRouter()
     const Header = () => {
         return (
-            <div className='d-flex gap-2 flex-column w-100' >
+            <div className='d-flex gap-2 flex-column w-100 py-5' >
                 <div className='d-flex flex-row align-items-center w-100 justify-content-between gap-2 pt-5'>
                     <div className='d-flex flex-row gap-2 align-items-center'>
                         <Typography
@@ -79,14 +80,15 @@ const ContactsPage = () => {
     }
 
     return (
-        <div className='container-xl'>
-            <div className='d-flex flex-column pb-5'
+        <div className='container'>
+            <div className='d-flex flex-column pb-5 '
 
             >
                 <Header />
-                <div className='container row gap-2 d-flex align-items-center'>
-                    <div className='item col-xs-12 col-md-6'   >
-                        <div className='d-flex flex-column gap-3 py-5'>
+                <div className='container-fliud row  d-flex  align-items-center justify-content-between'>
+
+                    <div className='item col-xs-12 col-md-6'>
+                        <div className='d-flex flex-column justify-content-end gap-2 align-items-md-start align-items-xs-center'>
                             <Typography
                                 color={isDark ? textLight : textGray}
                                 fontWeight={400}
@@ -94,11 +96,6 @@ const ContactsPage = () => {
                             >
                                 {text}
                             </Typography>
-                        </div>
-                        {/* <ContactForm /> */}
-                    </div>
-                    <div className='item col-xs-12 col-md-6'>
-                        <div className='d-flex flex-column justify-content-center align-items-md-start align-items-xs-center'>
                             <div className='d-flex flex-column gap-1'
                                 style={{
                                     border: '1px solid #ABB2BF',
@@ -106,6 +103,7 @@ const ContactsPage = () => {
                                 }}
 
                             >
+
                                 <Typography>
                                     {socailAccountsTitle}:
                                 </Typography>
@@ -132,6 +130,14 @@ const ContactsPage = () => {
                                     })
                                 }
                             </div>
+                        </div>
+
+
+                    </div>
+                    <div className='item col-xs-12 col-md-6'>
+                        <div className='d-flex flex-column gap-3 py-5 ' >
+
+                            <ContactForm />
                         </div>
                     </div>
                 </div>

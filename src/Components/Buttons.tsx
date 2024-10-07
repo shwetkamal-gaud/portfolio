@@ -27,11 +27,10 @@ const Buttons = ({ btnTitle, onClick, children }: ButtonsInterface) => {
     const isDark = Boolean(mode === 'dark')
     return (
         <button style={{
-            '--main-color': isDark ? "#C770DB1A" : "#ABB2BF1A",
+            width: '100%', '--main-color': isDark ? "#C770DB1A" : "#ABB2BF1A",
             '--third-color': isDark ? textWhite : textDark,
             '--second-color': "#C778DD",
-
-        } as React.CSSProperties} className='bt' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        } as React.CSSProperties} className='bt ' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             const btn = e.target as HTMLButtonElement
             const rect = btn.getBoundingClientRect();
             setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
@@ -52,7 +51,7 @@ const Buttons = ({ btnTitle, onClick, children }: ButtonsInterface) => {
             ) : (
                 ''
             )}
-            {btnTitle}
+            {btnTitle}&nbsp;
             {children}
         </button>
     )

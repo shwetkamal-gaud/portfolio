@@ -9,8 +9,6 @@ import Typography from "@/Components/Typography";
 import Link from "next/link";
 import Buttons from "@/Components/Buttons";
 import Image from "next/image";
-import dotLight from "../assets/images/dot.svg"
-import dotDark from "../assets/images/dotDark.svg";
 import styles from "@/styles/Home.module.css";
 
 
@@ -51,7 +49,7 @@ export default function Home() {
     blockquote: { quoteText1, quoteText2, quoteText3, quoteText4, quoteBy },
     image } = heroTopSectionData;
 
-  const { mode, textDark, textLight, textWhite, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
+  const { mode, textDark, textLight, textWhite, mainBgColorDark, mainBgColorLight, textGray } = useSelector((state: RootState) => state.theme)
   const isDark = Boolean(mode === 'dark')
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
@@ -106,55 +104,16 @@ export default function Home() {
           <div className="col-xs-12 col-md-6 d-flex justify-content-end ">
             <div className="d-flex gap-1 flex-column align-items-center justify-content-xl-end justify-content-center position-relative px-xs-0 px-md-2 px-md-5">
 
-              <div className="box">
-                <div className="content">
-
+              <div className="box shadow-lg" style={{ '--box-shadow': isDark ? textLight : textGray } as React.CSSProperties}>
+                <div className="content shadow-inset">
                   <Image className="img-fluid"
                     alt={"hero_img"}
                     src={image}
-                    style={{ width: '100%', height: '160%', zIndex: 3 }}
+                    style={{ width: '100%', height: '182%', zIndex: 3 }}
                   />
                   <h2>Shwetkamal Gaud</h2>
                 </div>
               </div>
-
-              <div
-                style={{
-                  padding: "8px",
-                  border: " 1px solid #ABB2BF",
-                  color: isDark ? textLight : textDark,
-                  margin: "0px auto",
-                  display: "inline-flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  position: "relative",
-                  zIndex: 3,
-                  top: '2px',
-                  gap: "8px",
-                  fontWeight: 500,
-                }}
-              >
-                <span
-                  style={{
-                    content: "",
-                    display: "inline-block",
-                    aspectRatio: "1/1",
-                    width: "16px",
-                    backgroundColor: "#C770DB1A",
-                    border: "1px solid #C778DD",
-                  }}
-                ></span>
-                {text}
-                <a href={url} target="_blank" rel="noreferrer"
-                  style={{
-                    color: "#C778DD",
-                    textDecoration: 'none'
-                  }}
-                >
-                  {urlText}
-                </a>
-              </div>
-              <Image src={isDark ? dotLight : dotDark} alt="" className=" img-fluid dot-image align-self-start" />
             </div>
           </div>
         </div>

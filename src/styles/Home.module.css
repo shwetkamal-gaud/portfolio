@@ -256,3 +256,14 @@ a.secondary {
 .blockquote h4:first-letter {
   margin-left: -12px;
 }
+
+.input {
+  border-top: 0px;
+
+  border-bottom-color: #C778DD;
+  background: transparent;
+}
+
+#id input:focus {
+  border: 0;
+}

@@ -70,7 +70,7 @@ const initialState: InitialState = {
         },
         {
             id: 4,
-            name: "light purple",
+            name: "light navy",
             mode: "light",
             mainBgColorLight: "#3A6D8C",
             bgColor: "#3A6D8C",

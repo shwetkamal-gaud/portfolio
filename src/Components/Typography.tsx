@@ -26,6 +26,7 @@ const Typography: React.FC<TypographyInterface> = ({ children, text, color, font
     return (
         <div className='d-flex align-items-center justify-content-start ' onClick={onClick} >
             <h5 className='mb-0 ' style={{
+                gap: 2,
                 fontFamily: "FiraCode", fontWeight: fontWeight ? fontWeight : 800,
                 fontSize: fontSize ? fontSize : '1rem', color: color ? color : isDark ? textLight : textDark,
                 textAlign: textAlign ? textAlign : 'start', borderBottom: bB ? bB : '', padding: p && p,
