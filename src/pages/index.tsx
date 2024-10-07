@@ -45,7 +45,6 @@ export default function Home() {
   const {
     title: { title1, title3, title4, title5, title6 },
     subtitle,
-    doing: { text, url, urlText },
     blockquote: { quoteText1, quoteText2, quoteText3, quoteText4, quoteBy },
     image } = heroTopSectionData;
 

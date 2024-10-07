@@ -220,8 +220,8 @@ const ProjectPage = () => {
 
                                     </div>
                                     <ul className='p-3'>
-                                        {item.description.map((items) => (
-                                            <li style={{ fontSize: 14, fontWeight: 400, color: isDark ? textLight : textDark }}>{items}</li>
+                                        {item.description.map((items, index) => (
+                                            <li key={index} style={{ fontSize: 14, fontWeight: 400, color: isDark ? textLight : textDark }}>{items}</li>
                                         ))}
                                     </ul>
                                     {/* <Typography
