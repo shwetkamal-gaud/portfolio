@@ -1,7 +1,6 @@
 
 import React from 'react'
 import app from '../../assets/images/app.svg'
-import portfolio from '../../assets/images/portfolio.png'
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
