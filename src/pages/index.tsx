@@ -101,8 +101,8 @@ export default function Home() {
           <div className="col-xs-12 col-md-6 d-flex justify-content-center  ">
             <div className="d-flex gap-1 flex-column align-items-center justify-content-end position-relative px-xs-0 px-md-2 px-md-5">
 
-              <div className="box shadow-lg" style={{ '--box-shadow': isDark ? textLight : textGray } as React.CSSProperties}>
-                <div className="content shadow-inset">
+              <div className="box">
+                <div className="content ">
                   <Image className="img-fluid"
                     alt={"hero_img"}
                     src={image}
