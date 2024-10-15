@@ -46,7 +46,7 @@ export default function Home() {
     subtitle,
     image } = heroTopSectionData;
 
-  const { mode, textDark, textLight, textGray } = useSelector((state: RootState) => state.theme)
+  const { mode, textDark, textLight } = useSelector((state: RootState) => state.theme)
   const isDark = Boolean(mode === 'dark')
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
