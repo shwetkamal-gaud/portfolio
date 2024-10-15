@@ -56,29 +56,29 @@ const portfolioData: PortfolioData[] = [
         },
 
     },
-    {
-        id: 2,
-        results: {
-            title: 'web 2.0',
-            data: [
-                {
-                    id: 1,
-                    title: 'Portfolio',
-                    skills: ['TypeScript', "React Js", "Next Js", "Redux", "Redux", "Bootstrap"],
-                    description: [`This Portfolio website display completed projects, case studies and professional achievements in a
-                                structured way.`,
-                        `This highlight my technical expertise in software development, including proficiency in front - end
-                                frameworks like React, Next Js, Bootstrap.`],
-                    cardImage: portfolio,
-                    liveUrl: 'https://portfolioshwetkamal.vercel.app/',
-                    githubUrl: 'https://github.com/mrskg0438/portfolio',
-                    isPrivate: true
-                },
+    // {
+    //     id: 2,
+    //     results: {
+    //         title: 'web 2.0',
+    //         data: [
+    //             {
+    //                 id: 1,
+    //                 title: 'Portfolio',
+    //                 skills: ['TypeScript', "React Js", "Next Js", "Redux", "Redux", "Bootstrap"],
+    //                 description: [`This Portfolio website display completed projects, case studies and professional achievements in a
+    //                             structured way.`,
+    //                     `This highlight my technical expertise in software development, including proficiency in front - end
+    //                             frameworks like React, Next Js, Bootstrap.`],
+    //                 cardImage: portfolio,
+    //                 liveUrl: 'https://portfolioshwetkamal.vercel.app/',
+    //                 githubUrl: 'https://github.com/mrskg0438/portfolio',
+    //                 isPrivate: true
+    //             },
 
-            ],
-        },
+    //         ],
+    //     },
 
-    },
+    // },
 ]
 
 

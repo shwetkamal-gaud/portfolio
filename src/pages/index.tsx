@@ -9,7 +9,6 @@ import Typography from "@/Components/Typography";
 import Link from "next/link";
 import Buttons from "@/Components/Buttons";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 
 
 const heroTopSectionData = {
@@ -45,10 +44,9 @@ export default function Home() {
   const {
     title: { title1, title3, title4, title5, title6 },
     subtitle,
-    blockquote: { quoteText1, quoteText2, quoteText3, quoteText4, quoteBy },
     image } = heroTopSectionData;
 
-  const { mode, textDark, textLight, textWhite, mainBgColorDark, mainBgColorLight, textGray } = useSelector((state: RootState) => state.theme)
+  const { mode, textDark, textLight, textGray } = useSelector((state: RootState) => state.theme)
   const isDark = Boolean(mode === 'dark')
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
