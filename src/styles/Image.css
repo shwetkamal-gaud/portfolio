@@ -88,12 +88,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 100%;
             transition: .5s;
             text-align: center;
             pointer-events: none;
             z-index: 3;
+            vertical-align: middle !important;
         }
 
         h2 {
