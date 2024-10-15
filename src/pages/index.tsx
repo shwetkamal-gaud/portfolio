@@ -106,7 +106,7 @@ export default function Home() {
                   <Image className="img-fluid"
                     alt={"hero_img"}
                     src={image}
-                    style={{ width: '22rem', height: '28rem' }}
+                    style={{ width: '22rem', height: '38rem' }}
                   />
                   <h2>Shwetkamal Gaud</h2>
                 </div>
