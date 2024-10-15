@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import hero from "../assets/images/20241005_125644.png";
+import hero from "../assets/images/20241005_1256446.png";
 import { RootState } from "@/redux/reducers";
 import Projects from "@/Components/Projects";
 import Skills from "@/Components/Skills";
