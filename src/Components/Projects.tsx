@@ -13,21 +13,13 @@ const homeProtfolioData = [
     {
         id: 1,
         title: 'MultiFactor Authentication',
-        skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper',],
+        skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper', 'Java', 'Spring Boot'],
         description: `Multifactor Authentication App For Authenticating user using totp code.`,
         cardImage: app,
         isPrivate: true,
 
     },
-    {
-        id: 2,
-        title: 'Portfolio',
-        skills: ['TypeScript', "React Js", "Next Js", "Redux", "Redux", "Bootstrap"],
-        description: `My portfolio website, you're probably looking at right now.`,
-        cardImage: portfolio,
 
-
-    },
 
 ]
 

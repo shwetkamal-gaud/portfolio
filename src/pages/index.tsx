@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
       <div className="d-flex flex-column w-100 ">
-        <div className="container d-flex flex-row row justify-content-center align-items-center p-0 m-0 ">
+        <div className="container d-flex flex-row row justify-content-between align-items-center p-0 m-0 ">
           <div className="col-sm-12 col-md-6 ">
             <div className="d-flex flex-column  align-items-start">
               <Typography
@@ -100,8 +100,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-xs-12 col-md-6 d-flex justify-content-end ">
-            <div className="d-flex gap-1 flex-column align-items-center justify-content-xl-end justify-content-center position-relative px-xs-0 px-md-2 px-md-5">
+          <div className="col-xs-12 col-md-6 d-flex justify-content-center  ">
+            <div className="d-flex gap-1 flex-column align-items-center justify-content-end position-relative px-xs-0 px-md-2 px-md-5">
 
               <div className="box shadow-lg" style={{ '--box-shadow': isDark ? textLight : textGray } as React.CSSProperties}>
                 <div className="content shadow-inset">
@@ -114,25 +114,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className={styles.blockquoteWrapper}>
-          <div className={styles.blockquote}>
-            <h1 style={{ '--main-content': isDark ? mainBgColorDark : mainBgColorLight } as React.CSSProperties}>
-              {quoteText1}  <span
-                style={{ color: isDark ? textWhite : textDark }}
-              >{quoteText2}</span> {quoteText3} <span
-                style={{ color: isDark ? textWhite : textDark }}
-
-              >  {quoteText4}</span>
-            </h1>
-            <h4
-              style={{
-                color: isDark ? textWhite : textDark
-              }}
-            >—{quoteBy}<br />
-
-            </h4>
           </div>
         </div>
         <Projects />
