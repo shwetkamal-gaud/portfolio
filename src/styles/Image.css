@@ -173,11 +173,11 @@
     width: min(80ch, 100%);
     margin-inline: auto;
 
-    /* img {
+    img {
         mask: url(../assets/images/spash.png) no-repeat center;
         max-width: fit-content;
         display: block;
         aspect-ratio: 1;
         object-fit: cover;
-    } */
+    }
 }
