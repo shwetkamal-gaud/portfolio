@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 
 const heroTopSectionData = {
   title: {
-    title1: "I'm",
+    title1: "I am",
     title3: "Frontend Engineer",
     title4: "&",
     title5: "React Native",
@@ -25,20 +25,6 @@ const heroTopSectionData = {
   solutions with a strong focus on user experience. Passionate about delivering user-centric experiences through
   technology and dedicated to crafting high-quality applications.`,
   image: hero,
-  doing: {
-    text: "Worked at",
-    url: 'https://medkart.com/',
-    urlText: 'Medakart Pharmacy Pvt Ltd'
-  },
-  blockquote: {
-    quoteText1: "The secret",
-    quoteText2: " of getting",
-    quoteText3: "ahead is",
-    quoteText4: "getting started",
-    quoteBy: "Mark Twain",
-  }
-
-
 }
 
 export default function Home() {
@@ -112,7 +98,8 @@ export default function Home() {
                     alt={"hero_img"}
                     src={image}
                   />
-                  <h2>Shwetkamal Gaud</h2>
+                  <h2>Shwetkamal Gaud <span>Currently  Working On Virtual Classroom Project</span></h2>
+
                 </div>
               </div>
             </div>
