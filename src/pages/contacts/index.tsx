@@ -46,7 +46,7 @@ const ContactsPage = () => {
     const [isDark, setIsDark] = useState(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
     const { text, socailAccounts, socailAccountsTitle } = contactData;
     const router = useRouter()

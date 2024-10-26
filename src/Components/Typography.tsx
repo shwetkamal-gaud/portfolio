@@ -20,10 +20,10 @@ interface TypographyInterface {
 
 const Typography: React.FC<TypographyInterface> = ({ children, text, color, fontWeight, fontSize, textAlign, bB, p, cursor, onMouseOver, onMouseLeave, onClick }) => {
     const { mode, textDark, textLight, } = useSelector((state: RootState) => state.theme)
-    const [isDark, setIsDark] = useState<Boolean>(false)
+    const [isDark, setIsDark] = useState<boolean>(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
 
     return (

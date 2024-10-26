@@ -28,7 +28,7 @@ const Projects = () => {
     const [isDark, setIsDark] = useState(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
     const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {

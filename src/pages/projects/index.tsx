@@ -86,7 +86,7 @@ const ProjectPage = () => {
     const [isDark, setIsDark] = useState(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
     const router = useRouter()
     const Header = ({ title, isBack, text }: { title: string, isBack: boolean, text: string }) => {

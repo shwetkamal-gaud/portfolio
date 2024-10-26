@@ -48,10 +48,10 @@ export default function Home() {
     image } = heroTopSectionData;
 
   const { mode, textDark, textLight } = useSelector((state: RootState) => state.theme)
-  const [isDark, setIsDark] = useState<Boolean>(false)
+  const [isDark, setIsDark] = useState<boolean>(false)
   useEffect(() => {
     setIsDark(Boolean(mode === 'dark'))
-    console.log("first", mode, isDark)
+
   }, [mode])
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">

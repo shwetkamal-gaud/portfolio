@@ -9,7 +9,7 @@ const ContactForm = () => {
     const [isDark, setIsDark] = useState(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
     const handleSubmit = () => {
         const a = document && document.createElement('a')

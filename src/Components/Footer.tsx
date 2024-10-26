@@ -46,10 +46,10 @@ const footerData = {
 
 const Footer = () => {
     const { mode, textDark, textLight, textGray, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
-    const [isDark, setIsDark] = useState<Boolean>(false)
+    const [isDark, setIsDark] = useState<boolean>(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-        console.log("first", mode, isDark)
+
     }, [mode])
     const { socials, socialsTitle, discription, link, copyRight, logoTitle,
         refText } = footerData;
