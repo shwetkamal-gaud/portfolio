@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo from '../assets/images/Pi7_Passport_Photo.jpeg'
 import Typography from './Typography'
 import Image from 'next/image'
@@ -38,7 +38,11 @@ const homeAboutData = {
 
 const About = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     const { aboutData, resume } = homeAboutData;
     const Header = () => {
         return (

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import skillLeftImg from '../assets/images/skillRacktangle.svg'
 import Typography from './Typography'
 import { useSelector } from 'react-redux'
@@ -63,7 +63,11 @@ const mySkills = [
 const Skills = () => {
 
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     const Header = () => {
         return (
 

@@ -4,7 +4,7 @@ import Typography from '@/Components/Typography'
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 
@@ -43,7 +43,11 @@ const contactData = {
 }
 const ContactsPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     const { text, socailAccounts, socailAccountsTitle } = contactData;
     const router = useRouter()
     const Header = () => {

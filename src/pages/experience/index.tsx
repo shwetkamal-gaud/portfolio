@@ -1,7 +1,7 @@
 import Typography from '@/Components/Typography'
 import { RootState } from '@/redux/reducers'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const experienceData = [
@@ -39,7 +39,11 @@ const ExperiencePage = () => {
     const router = useRouter()
 
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     const Header = () => {
         return (
             <div className='d-flex gap-2 flex-column w-100' >

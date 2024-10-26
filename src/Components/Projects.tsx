@@ -1,6 +1,6 @@
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import app from '../assets/images/app.svg'
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
@@ -25,7 +25,11 @@ const homeProtfolioData = [
 
 const Projects = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {
         return (

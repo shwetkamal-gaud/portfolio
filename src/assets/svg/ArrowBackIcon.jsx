@@ -2,7 +2,11 @@ import * as React from "react"
 import { useSelector } from "react-redux"
 const ArrowBackIcon = (props) => {
     const { mode, textLight, textGray } = useSelector(state => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = React.useState< Boolean > (false)
+    React.useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+        console.log("first", mode, isDark)
+    }, [mode])
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
