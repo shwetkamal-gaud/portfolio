@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Buttons from './Buttons'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/reducers'
@@ -6,7 +6,11 @@ import { RootState } from '@/redux/reducers'
 const ContactForm = () => {
     const [data, setData] = useState({ name: '', email: '', subject: '', message: '' })
     const { mode, textLight, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const handleSubmit = () => {
         const a = document && document.createElement('a')
         a.href = `mailto:gaudshwetkamal0438@gmail.com?subject=${data.subject}&body=${data.message}`

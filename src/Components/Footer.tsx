@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FigmaIcon, GithubIcon, LinkDinIcon, LogoImg, TelegramIcon, TwitterIcon } from '@/assets/svg'
 import logo from "../assets/images/logo.png";
 import { useSelector } from 'react-redux';
@@ -46,7 +46,11 @@ const footerData = {
 
 const Footer = () => {
     const { mode, textDark, textLight, textGray, mainBgColorDark, mainBgColorLight } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState<boolean>(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const { socials, socialsTitle, discription, link, copyRight, logoTitle,
         refText } = footerData;
     return (

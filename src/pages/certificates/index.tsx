@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import courseCertificate from '../../assets/images/certification/Certificate.jpg';
 import python from '../../assets/images/certification/python_basic certificate.png'
 import offerLatter from '../../assets/images/certification/Internship Letter-Shwetkamal Gaud-Silveroak-1.png';
@@ -38,7 +38,11 @@ const data = [
 
 const CertificatesPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const router = useRouter()
     const Header = () => {
         return (

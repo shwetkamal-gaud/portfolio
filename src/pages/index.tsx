@@ -9,6 +9,7 @@ import Typography from "@/Components/Typography";
 import Link from "next/link";
 import Buttons from "@/Components/Buttons";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 
 const heroTopSectionData = {
@@ -47,7 +48,11 @@ export default function Home() {
     image } = heroTopSectionData;
 
   const { mode, textDark, textLight } = useSelector((state: RootState) => state.theme)
-  const isDark = Boolean(mode === 'dark')
+  const [isDark, setIsDark] = useState<boolean>(false)
+  useEffect(() => {
+    setIsDark(Boolean(mode === 'dark'))
+
+  }, [mode])
   return (
     <div className="container d-flex align-items-center w-100 mt-5 p-0  ">
       <div className="d-flex flex-column w-100 ">

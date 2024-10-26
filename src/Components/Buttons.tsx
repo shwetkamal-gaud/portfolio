@@ -24,7 +24,10 @@ const Buttons = ({ btnTitle, onClick, children }: ButtonsInterface) => {
         if (!isRippling) setCoords({ x: -1, y: -1 });
     }, [isRippling]);
     const { mode, textDark, textWhite } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+    }, [mode])
     return (
         <button style={{
             width: '100%', '--main-color': isDark ? "#C770DB1A" : "#ABB2BF1A",

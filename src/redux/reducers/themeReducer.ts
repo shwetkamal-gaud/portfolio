@@ -30,7 +30,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    mode: getInitialTheme() ? "light" : "dark",
+    mode: getInitialTheme() ? "dark" : "light",
     mainBgColorDark: '#282C33',
     mainBgColorLight: '#e3f2fd',
     textDark: '#000000',

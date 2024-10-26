@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { emailIcon, telegramIcon, linkedinIcon } from '@/assets/Icon';
 import Typography from './Typography';
@@ -44,7 +44,11 @@ const homeContactData = {
 const Contacts = () => {
     const { text, socailAccounts, socailAccountsTitle } = homeContactData;
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark');
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const Header = () => {
         return (
             <div className='d-flex flex-row align-items-center gap-2 pt-5'

@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactNode } from 'react'
+import React, { MouseEventHandler, ReactNode, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/reducers';
 
@@ -20,8 +20,11 @@ interface TypographyInterface {
 
 const Typography: React.FC<TypographyInterface> = ({ children, text, color, fontWeight, fontSize, textAlign, bB, p, cursor, onMouseOver, onMouseLeave, onClick }) => {
     const { mode, textDark, textLight, } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState<boolean>(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
 
+    }, [mode])
 
     return (
         <div className='d-flex align-items-center justify-content-start ' onClick={onClick} >

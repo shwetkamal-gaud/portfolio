@@ -109,7 +109,11 @@ interface RippleButtonProps {
 }
 const Nav: React.FC<RippleButtonProps> = ({ onClick }) => {
     const { mode, mainBgColorDark, mainBgColorLight, textDark, textLight } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState<boolean>(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const { routes, logoTitle } = navbarData
     const router = useRouter()
     const [coords, setCoords] = useState({ x: -1, y: -1 });

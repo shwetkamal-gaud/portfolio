@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import app from '../../assets/images/app.svg'
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
@@ -83,7 +83,11 @@ const portfolioData: PortfolioData[] = [
 
 const ProjectPage = () => {
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const router = useRouter()
     const Header = ({ title, isBack, text }: { title: string, isBack: boolean, text: string }) => {
         return (

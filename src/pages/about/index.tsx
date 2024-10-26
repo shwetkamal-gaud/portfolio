@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo from "../../assets/images/ShwetkamalBg.png"
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
@@ -99,7 +99,11 @@ const AboutPage = () => {
     const { aboutData, mySkills, funFact, resume, image } = aboutMeData;
     const { mode, textDark, textLight, textWhite, textGray } = useSelector((state: RootState) => state.theme)
 
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     const router = useRouter()
     const Header = () => {
         return (

@@ -1,8 +1,12 @@
-import * as React from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 const GithubIcon = () => {
     const { mode, textLight, textGray } = useSelector(state => state.theme)
-    const isDark = Boolean(mode === 'dark')
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        setIsDark(Boolean(mode === 'dark'))
+
+    }, [mode])
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width={32} height={32} fill="none">
             <path
