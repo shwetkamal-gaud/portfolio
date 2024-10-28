@@ -97,6 +97,7 @@
         }
 
         h2 {
+            display: none;
             position: relative;
             text-align: center;
             font-size: 15px;
@@ -108,7 +109,7 @@
             padding: 10px, 0px;
 
             span {
-                display: block;
+                display: none;
                 position: relative;
                 font-weight: 360;
                 font-size: 12px;
@@ -142,8 +143,18 @@
             inset: -20px 0px;
         }
 
-        img {
-            opacity: 0
+        .content {
+            img {
+                opacity: 0
+            }
+
+            h2 {
+                display: block;
+
+                span {
+                    display: block;
+                }
+            }
         }
     }
 }
