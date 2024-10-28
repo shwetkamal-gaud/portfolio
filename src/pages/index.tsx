@@ -93,7 +93,7 @@ export default function Home() {
             <div className="d-flex gap-1 flex-column align-items-center justify-content-end position-relative px-xs-0 px-md-2 px-md-5">
 
               <div className="box">
-                <div className="content ">
+                <div className="content">
                   <Image className="img-fluid"
                     alt={"hero_img"}
                     src={image}
