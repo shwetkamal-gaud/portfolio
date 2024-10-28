@@ -98,7 +98,7 @@ export default function Home() {
                     alt={"hero_img"}
                     src={image}
                   />
-                  <h2>Shwetkamal Gaud <span>Currently  Working On Virtual Classroom Project</span></h2>
+                  <h2 className="d-md-block d-flex flex-column">Shwetkamal Gaud <span>Currently  Working On Virtual Classroom Project</span></h2>
 
                 </div>
               </div>
