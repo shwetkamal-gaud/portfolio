@@ -41,7 +41,9 @@
     }
 }
 
-
+@media screen {
+    
+}
 
 .box {
     position: relative;
@@ -110,7 +112,7 @@
 
             span {
                 display: block;
-
+                position: relative;
                 font-weight: 360;
                 font-size: 12px;
                 color: #fff;
@@ -148,7 +150,6 @@
         }
     }
 }
-
 
 .grid {
     display: grid;
