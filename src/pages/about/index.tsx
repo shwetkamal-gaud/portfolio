@@ -89,7 +89,7 @@ successful projects on time and within budget.`
         "I Miss my childhood days",
 
     ],
-    resume: '/Shwetkamal Gaud.pdf',
+    resume: '/Shwetkamal_FD_Resume.pdf',
     image: photo,
 }
 
@@ -334,7 +334,7 @@ const AboutPage = () => {
                                         <Buttons
                                             btnTitle="Download CV"
 
-                                        // startIcon={<PictureAsPdfIcon />}
+                                        
                                         >
                                         </Buttons>
                                     </a>

@@ -5,17 +5,39 @@ import app from '../assets/images/app.svg'
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
-
+import cryotoApp from '../assets/images/crypto.png'
+import TaskListSvg from '@/assets/svg/TaskListSVG'
 
 
 const homeProtfolioData = [
     {
         id: 1,
+        title: 'Cruptocurrency Tracking Platform',
+        skills: ['TypeScript', "ReactJs", "Next.js", "Redux", "Redux-Saga", "Bootstrap", "HTML", "CSS"],
+        description: `A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
+        cardImage: cryotoApp,
+        isPrivate: true,
+        links: [{ name: 'Live', link: 'https://koin-x-app.vercel.app/', }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/koinX-app' }]
+
+    },
+    // {
+    //     id: 2,
+    //     title: 'TaskBuddy',
+    //     skills: ['TypeScript', "ReactJs", "React Query", "Redux", "TailwindCSS", "HTML", "CSS"],
+    //     description: `This is a task management system with real-time updates, filtering, and Google authentication.`,
+    //     svg: <TaskListSvg />,
+    //     isPrivate: true,
+    //     links: [{ name: 'Live', link: 'https://task-management-system-sepia.vercel.app/' }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/task-management-system' }]
+
+    // },
+    {
+        id: 3,
         title: 'MultiFactor Authentication',
-        skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper', 'Java', 'Spring Boot'],
-        description: `Multifactor Authentication App For Authenticating user using totp code.`,
+        skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper'],
+        description: `Multifactor Authentication App For Authenticating user using Time based OTP code .`,
         cardImage: app,
         isPrivate: true,
+        links: [{ name: 'Github', link: 'https://github.com/shwetkamal-gaud/multifactor-authentication' }]
 
     },
 
@@ -38,7 +60,7 @@ const Projects = () => {
                 {
                     homeProtfolioData.map((item) => {
                         return (
-                            <div key={item.id} className='d-flex flex-column  '
+                            <div key={item.id} className='d-flex flex-column justify-content-between '
                                 style={{
                                     border: '1px solid #ABB2BF',
                                 }}
@@ -57,12 +79,13 @@ const Projects = () => {
                                     }}
                                 >
 
-                                    <Image className='img-fluid rounded'
+                                    {item.cardImage && <Image className='img-fluid rounded'
                                         style={{ width: '19rem', height: '15rem', padding: 2 }}
                                         alt={item.title}
                                         src={item.cardImage}
 
-                                    />
+                                    />}
+                                    {/* {item.svg && <div className='img-fluid rounde'>{item.svg}</div>} */}
 
 
                                 </div>
@@ -125,15 +148,33 @@ const Projects = () => {
                                         }}>Public</span>
 
                                     </div>
-                                    <Typography
-                                        fontSize={14}
-                                        fontWeight={400}
-                                        color={isDark ? textLight : textDark}
-                                        textAlign={'start'}
-                                        p={'10px 0px 0px 0px'}
-                                    >
-                                        {item.description}
-                                    </Typography>
+                                    <div className='d-flex flex-column h-100 justify-content-between'>
+
+                                        <Typography
+                                            fontSize={14}
+                                            fontWeight={400}
+                                            color={isDark ? textLight : textDark}
+                                            textAlign={'start'}
+                                            p={'10px 0px 0px 0px'}
+                                        >
+                                            {item.description}
+                                        </Typography>
+                                        {
+                                            item.links && <div className='project-link'>
+                                                {
+                                                    item.links.map((project) => {
+                                                        return (
+                                                            <>
+                                                                <Link className='project-btn' href={project.link} target='_blank'>
+                                                                    {project.name}
+                                                                </Link>
+                                                            </>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        }
+                                    </div>
 
                                 </div>
 
