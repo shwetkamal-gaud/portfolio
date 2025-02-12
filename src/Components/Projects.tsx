@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
 import cryotoApp from '../assets/images/crypto.png'
-import TaskListSvg from '@/assets/svg/TaskListSVG'
+// import TaskListSvg from '@/assets/svg/TaskListSVG'
 
 
 const homeProtfolioData = [
