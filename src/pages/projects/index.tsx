@@ -8,6 +8,7 @@ import Typography from '@/Components/Typography';
 import Image, { StaticImageData } from 'next/image';
 import Buttons from '@/Components/Buttons';
 import { figmaIcon, githubIcon, playIcon, worldIcon } from '@/assets/Icon';
+import cryotoApp from '../../assets/images/crypto.png'
 
 interface Data {
     id: number
@@ -32,9 +33,31 @@ interface PortfolioData {
 }
 
 const portfolioData: PortfolioData[] = [
-
     {
         id: 1,
+        results: {
+            title: 'Web App',
+            data: [
+                {
+                    id: 1,
+                    title: 'Cruptocurrency Tracking Platform',
+                    skills: ['TypeScript', "ReactJs", "Next.js", "Redux", "Redux-Saga", "Bootstrap", "HTML", "CSS"],
+                    description: [`A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
+                        `Integrated the CoinGecko RESTful APIs for live updates and TradingWidget for visual analytics.`,
+                        `Optimized state management and reusable components implemented for a faster and seamlessUI.`],
+                    cardImage: cryotoApp,
+                    githubUrl: 'https://github.com/shwetkamal-gaud/koinX-app',
+                    isPrivate: true,
+                    liveUrl: 'https://koin-x-app.vercel.app/'
+                },
+
+            ],
+        },
+
+    },
+
+    {
+        id: 2,
         results: {
             title: 'android & IOS apps',
             data: [

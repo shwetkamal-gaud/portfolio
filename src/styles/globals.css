@@ -169,3 +169,19 @@ input:focus {
   color: #ededed !important;
   opacity: var(--main-op) !important;
 }
+
+.project-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid hsl(287 60% 65%);
+  font-weight: 500;
+  text-decoration: none;
+  align-self: flex-end;
+  font-weight: bold;
+}

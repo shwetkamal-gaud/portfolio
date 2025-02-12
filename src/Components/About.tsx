@@ -31,7 +31,7 @@ const homeAboutData = {
             text: ` Mobile app development and VAPT(Vunerability Assessment & Penetration Testing) are my other passions. React and React Native is my favorite JavaScript libraries. I'm also a big fan of Python, Java, Rust. In the future, I want to be a Full Stack Developer`,
         }
     ],
-    resume: `/Shwetkamal Gaud.pdf`,
+    resume: `/Shwetkamal_FD_Resume.pdf`,
     image: photo,
 }
 
