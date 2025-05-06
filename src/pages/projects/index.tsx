@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react'
-import app from '../../assets/images/app.svg'
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/reducers';
@@ -8,7 +7,7 @@ import Typography from '@/Components/Typography';
 import Image, { StaticImageData } from 'next/image';
 import Buttons from '@/Components/Buttons';
 import { figmaIcon, githubIcon, playIcon, worldIcon } from '@/assets/Icon';
-import cryotoApp from '../../assets/images/crypto.png'
+
 
 interface Data {
     id: number
@@ -45,9 +44,21 @@ const portfolioData: PortfolioData[] = [
                     description: [`A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
                         `Integrated the CoinGecko RESTful APIs for live updates and TradingWidget for visual analytics.`,
                         `Optimized state management and reusable components implemented for a faster and seamlessUI.`],
-                    cardImage: cryotoApp,
+                    cardImage: '/crypto.jpg',
                     githubUrl: 'https://github.com/shwetkamal-gaud/koinX-app',
                     isPrivate: true,
+                    liveUrl: 'https://koin-x-app.vercel.app/'
+                },
+                {
+                    id: 2,
+                    title: 'TaskBuddy',
+                    skills: ['TypeScript', "ReactJs", "React Query", "Redux", "TailwindCSS", "HTML", "CSS"],
+                    cardImage: '/task.svg',
+                    isPrivate: true,
+                    description: [`A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
+                        `Integrated the CoinGecko RESTful APIs for live updates and TradingWidget for visual analytics.`,
+                        `Optimized state management and reusable components implemented for a faster and seamlessUI.`],
+                    githubUrl: 'https://github.com/shwetkamal-gaud/koinX-app',
                     liveUrl: 'https://koin-x-app.vercel.app/'
                 },
 
@@ -69,7 +80,7 @@ const portfolioData: PortfolioData[] = [
                                 multiple forms of verification to prove their identity.`,
                         `By requiring multiple factors, this feature significantly reduce the risk of unauthorized access, even if one
                                 factor is compromised. This makes system or data more secure against cyber attacks`],
-                    cardImage: app,
+                    cardImage: '/app.svg',
                     githubUrl: 'https://github.com/mrskg0438/multifactor-authentication',
                     isPrivate: true
                 },
@@ -178,6 +189,8 @@ const ProjectPage = () => {
                                         style={{ alignSelf: 'center', width: '22rem', height: '20rem', padding: 2 }}
                                         alt={item.title}
                                         src={item.cardImage ? item.cardImage : ''}
+                                        width={1000}
+                                        height={1000}
 
                                     />
                                 </div>
@@ -220,7 +233,7 @@ const ProjectPage = () => {
                                         })
                                     }
                                 </ul>
-                                <div className=' p-2 gap-3 '
+                                <div className=' p-2 flex flex-col h-full justify-between'
                                     style={{ maxWidth: "360px" }}
                                 >
                                     <div
