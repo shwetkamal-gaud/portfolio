@@ -15,7 +15,7 @@ const sidebarData = [
     {
         name: 'github',
         icon: <GithubIcon />,
-        link: "https://github.com/mrskg0438",
+        link: "https://github.com/shwetkamal-gaud",
         id: 1
     },
     {

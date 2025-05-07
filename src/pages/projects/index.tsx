@@ -58,8 +58,8 @@ const portfolioData: PortfolioData[] = [
                     description: [`A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
                         `Integrated the CoinGecko RESTful APIs for live updates and TradingWidget for visual analytics.`,
                         `Optimized state management and reusable components implemented for a faster and seamlessUI.`],
-                    githubUrl: 'https://github.com/shwetkamal-gaud/koinX-app',
-                    liveUrl: 'https://koin-x-app.vercel.app/'
+                    githubUrl: 'https://github.com/shwetkamal-gaud/task-management-system',
+                    liveUrl: 'https://task-management-system-sepia.vercel.app/'
                 },
 
             ],
@@ -81,7 +81,7 @@ const portfolioData: PortfolioData[] = [
                         `By requiring multiple factors, this feature significantly reduce the risk of unauthorized access, even if one
                                 factor is compromised. This makes system or data more secure against cyber attacks`],
                     cardImage: '/app.svg',
-                    githubUrl: 'https://github.com/mrskg0438/multifactor-authentication',
+                    githubUrl: 'https://github.com/shwetkamal-gaud/multifactor-authentication',
                     isPrivate: true
                 },
 
