@@ -1,12 +1,10 @@
 import { RootState } from '@/redux/reducers'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import app from '../assets/images/app.svg'
+
 import { useSelector } from 'react-redux'
 import Typography from './Typography'
 import Link from 'next/link'
-import cryotoApp from '../assets/images/crypto.png'
-// import TaskListSvg from '@/assets/svg/TaskListSVG'
 
 
 const homeProtfolioData = [
@@ -15,27 +13,27 @@ const homeProtfolioData = [
         title: 'Cruptocurrency Tracking Platform',
         skills: ['TypeScript', "ReactJs", "Next.js", "Redux", "Redux-Saga", "Bootstrap", "HTML", "CSS"],
         description: `A real-time cryptocurrency tracking platform with historical data and a profit calculator.`,
-        cardImage: cryotoApp,
+        cardImage: '/crypto.jpg',
         isPrivate: true,
         links: [{ name: 'Live', link: 'https://koin-x-app.vercel.app/', }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/koinX-app' }]
 
     },
-    // {
-    //     id: 2,
-    //     title: 'TaskBuddy',
-    //     skills: ['TypeScript', "ReactJs", "React Query", "Redux", "TailwindCSS", "HTML", "CSS"],
-    //     description: `This is a task management system with real-time updates, filtering, and Google authentication.`,
-    //     svg: <TaskListSvg />,
-    //     isPrivate: true,
-    //     links: [{ name: 'Live', link: 'https://task-management-system-sepia.vercel.app/' }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/task-management-system' }]
+    {
+        id: 2,
+        title: 'TaskBuddy',
+        skills: ['TypeScript', "ReactJs", "React Query", "Redux", "TailwindCSS", "HTML", "CSS"],
+        description: `This is a task management system with real-time updates, filtering, and Google authentication.`,
+        cardImage:'/task.svg' ,
+        isPrivate: true,
+        links: [{ name: 'Live', link: 'https://task-management-system-sepia.vercel.app/' }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/task-management-system' }]
 
-    // },
+    },
     {
         id: 3,
         title: 'MultiFactor Authentication',
         skills: ['TypeScript', "React Native", "Redux", "Redux-Saga", "Native Base", 'React Native Paper'],
         description: `Multifactor Authentication App For Authenticating user using Time based OTP code .`,
-        cardImage: app,
+        cardImage: '/app.svg',
         isPrivate: true,
         links: [{ name: 'Github', link: 'https://github.com/shwetkamal-gaud/multifactor-authentication' }]
 
@@ -82,6 +80,8 @@ const Projects = () => {
                                     {item.cardImage && <Image className='img-fluid rounded'
                                         style={{ width: '19rem', height: '15rem', padding: 2 }}
                                         alt={item.title}
+                                        width={1000}
+                                        height={1000}
                                         src={item.cardImage}
 
                                     />}
