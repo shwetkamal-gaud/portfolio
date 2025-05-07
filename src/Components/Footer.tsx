@@ -12,7 +12,7 @@ const footerData = {
         {
             id: 1,
             name: 'github',
-            link: "https://github.com/mrskg0438",
+            link: "https://github.com/shwetkamal-gaud",
             img: <GithubIcon />
         },
         {
