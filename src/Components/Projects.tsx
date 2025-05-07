@@ -23,7 +23,7 @@ const homeProtfolioData = [
         title: 'TaskBuddy',
         skills: ['TypeScript', "ReactJs", "React Query", "Redux", "TailwindCSS", "HTML", "CSS"],
         description: `This is a task management system with real-time updates, filtering, and Google authentication.`,
-        cardImage:'/task.svg' ,
+        cardImage: '/task.svg',
         isPrivate: true,
         links: [{ name: 'Live', link: 'https://task-management-system-sepia.vercel.app/' }, { name: 'Github', link: 'https://github.com/shwetkamal-gaud/task-management-system' }]
 
@@ -53,12 +53,12 @@ const Projects = () => {
     const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {
         return (
-            <div className='d-flex flex-row justify-content-center flex-wrap gap-3'
+            <div className='d-flex flex-row justify-content-center  gap-3'
             >
                 {
                     homeProtfolioData.map((item) => {
                         return (
-                            <div key={item.id} className='d-flex flex-column justify-content-between '
+                            <div key={item.id} className='d-flex flex-column'
                                 style={{
                                     border: '1px solid #ABB2BF',
                                 }}
@@ -89,23 +89,14 @@ const Projects = () => {
 
 
                                 </div>
-                                <ul
-
-                                    style={{
-                                        display: 'flex',
-                                        flexWrap: 'wrap',
-                                        gap: '5px',
-                                        padding: '10px',
-                                        borderBottom: '1px solid #ABB2BF',
-                                        maxWidth: '360px',
-
-                                    }}
+                                <ul className='w-full p-3 border-bottom border-2'
                                 >
                                     {
-                                        item.skills.map((skill) => {
+                                        item.skills.map((skill: string) => {
                                             return (
                                                 <li
                                                     key={skill}
+
                                                     style={{
                                                         display: 'inline-block',
                                                         padding: '0.5rem',
@@ -115,7 +106,8 @@ const Projects = () => {
                                                         backgroundColor: isDark ? textLight : textGray,
                                                         borderRadius: '10px',
                                                         marginRight: '0.5rem',
-                                                        marginBottom: '0.5rem'
+                                                        marginBottom: '0.5rem',
+                                                        fontFamily: 'FiraCode'
                                                     }}
                                                 >
                                                     {skill}
@@ -124,7 +116,7 @@ const Projects = () => {
                                         })
                                     }
                                 </ul>
-                                <div className='d-flex flex-column p-2 g-2' style={{ maxWidth: "360px" }}
+                                <div className='d-flex flex-grow h-100 flex-column p-2 '
                                 >
                                     <div
                                         style={{
@@ -148,7 +140,7 @@ const Projects = () => {
                                         }}>Public</span>
 
                                     </div>
-                                    <div className='d-flex flex-column h-100 justify-content-between'>
+                                    <div className='d-flex flex-column justify-content-between h-100 '>
 
                                         <Typography
                                             fontSize={14}
@@ -160,7 +152,7 @@ const Projects = () => {
                                             {item.description}
                                         </Typography>
                                         {
-                                            item.links && <div className='project-link'>
+                                            item.links && <div className='project-link mt-1'>
                                                 {
                                                     item.links.map((project) => {
                                                         return (

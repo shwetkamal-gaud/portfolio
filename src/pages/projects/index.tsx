@@ -167,7 +167,7 @@ const ProjectPage = () => {
     }
     const ProjectCard = ({ data }: { data: Data[] }) => {
         return (
-            <div className='d-flex flex-row justify-content-center flex-wrap gap-2'>
+            <div className='d-flex flex-row justify-content-between gap-2'>
                 {
                     data.map((item: Data) => {
                         return (
@@ -178,7 +178,7 @@ const ProjectPage = () => {
                             >
                                 <div
                                     style={{
-                                        aspectRatio: '16/9',
+
                                         borderBottom: '1px solid #ABB2BF',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -194,19 +194,8 @@ const ProjectPage = () => {
 
                                     />
                                 </div>
-                                <ul className='w-100'
-
-                                    style={{
-                                        display: 'block',
-                                        flexWrap: 'wrap',
-                                        gap: '5px',
-                                        padding: '10px',
-                                        borderBottom: '1px solid #ABB2BF',
-                                        maxWidth: '400px',
-                                        listStyle: 'none',
-                                        width: '100%'
-
-                                    }}
+                                <ul className='w-full p-3 border-bottom border-2'
+                                    
                                 >
                                     {
                                         item.skills.map((skill: string) => {
@@ -234,7 +223,7 @@ const ProjectPage = () => {
                                     }
                                 </ul>
                                 <div className=' p-2 flex flex-col h-full justify-between'
-                                    style={{ maxWidth: "360px" }}
+
                                 >
                                     <div
                                         style={{
