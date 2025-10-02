@@ -53,7 +53,7 @@ const Projects = () => {
     const [isHovered, setHovered] = useState<boolean>(false)
     const ProjectCard = () => {
         return (
-            <div className='d-flex flex-row justify-content-center  gap-3'
+            <div className='d-flex flex-md-row flex-column justify-content-center  gap-3'
             >
                 {
                     homeProtfolioData.map((item) => {
@@ -198,8 +198,7 @@ const Projects = () => {
 
                     <div className='ms-3'
                         style={{
-
-                            width: 103,
+                            width:'6.8rem',
                             height: '1.5px',
                             backgroundColor: '#C778DD',
                         }}

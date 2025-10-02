@@ -167,7 +167,7 @@ const ProjectPage = () => {
     }
     const ProjectCard = ({ data }: { data: Data[] }) => {
         return (
-            <div className='d-flex flex-row justify-content-between gap-2'>
+            <div className='d-flex flex-md-row flex-column  justify-content-between gap-2'>
                 {
                     data.map((item: Data) => {
                         return (
@@ -194,8 +194,8 @@ const ProjectPage = () => {
 
                                     />
                                 </div>
-                                <ul className='w-full p-3 border-bottom border-2'
-                                    
+                                <ul className='w-full p-3 border-bottom border-2 m-0'
+
                                 >
                                     {
                                         item.skills.map((skill: string) => {
@@ -222,8 +222,7 @@ const ProjectPage = () => {
                                         })
                                     }
                                 </ul>
-                                <div className=' p-2 flex flex-col h-full justify-between'
-
+                                <div className=' p-2 flex flex-column  justify-between flex-grow-1'
                                 >
                                     <div
                                         style={{
@@ -358,10 +357,12 @@ const ProjectPage = () => {
                                     title={item?.results?.title}
 
                                 />
-                                <ProjectCard
-                                    key={index}
-                                    data={item.results.data}
-                                />
+                               
+                                    <ProjectCard
+                                        key={index}
+                                        data={item.results.data}
+                                    />
+                               
                             </div>
 
                         )
