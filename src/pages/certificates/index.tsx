@@ -41,7 +41,6 @@ const CertificatesPage = () => {
     const [isDark, setIsDark] = useState(false)
     useEffect(() => {
         setIsDark(Boolean(mode === 'dark'))
-
     }, [mode])
     const router = useRouter()
     const Header = () => {
